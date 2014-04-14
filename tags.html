@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Tags
-header: Posts By Tag
+title: "Метки"
+header: "Записи по меткам"
 group: navigation
 ---
 {% include JB/setup %}
@@ -13,7 +13,7 @@ group: navigation
 
 
 {% for tag in site.tags %} 
-  <h2 id="{{ tag[0] }}-ref">{{ tag[0] }}</h2>
+  <h3 id="{{ tag[0] }}-ref">{{ tag[0] }}</h3>
   <ul>
     {% assign pages_list = tag[1] %}  
     {% include JB/pages_list %}
