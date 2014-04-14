@@ -1,0 +1,34 @@
+---
+layout: post
+title: Как установить Grub2 на USB флешку
+categories:
+- linux
+tags:
+- grub2
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2595888525'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Взято <a href="http://www.panticz.de/MultiBootUSB" target="_blank">здесь</a>. Зачем это нужно? Grub2 может "поглядеть" в ISO образ, а значит, можно загрузить ОС Linux, не прожигая ISO образ на CD/DVD, если ваш дистр поддерживает такую фичу. (Казсид - поддерживает).</p>
+<p style="text-align: justify;">Предположим, что ваше USB устройство видно в системе как /dev/sdb.  И его первый раздел - /dev/sdb1. (Совет: Воткните флешку и поглядите вывод dmesg, набрав в консоли команду dmesg.). На вашем компьютере должен быть установлен Grub2, или загрузитесь с LiveCD, Ubuntu/Mint отлично подойдут.</p>
+<p>1) Монтируем устройство, скажем, сюда</p>
+<pre><strong>#mount /dev/sdb1 /mnt</strong></pre>
+<p>2) Ставим Grub2 на флешку</p>
+<pre><strong>#grub-install --no-floppy --root-directory=/mnt /dev/sdb</strong></pre>
+<p>Теперь можете закидывать на флешку ISO образы дистров, которые поддерживают загрузку с ISO образа.</p>
+<p>Часть конфига для загрузки Ubuntu</p>
+<p><code>menuentry "Ubuntu Live 9.10 32bit" {<br />
+loopback loop /boot/iso/ubuntu-9.10-desktop-i386.iso<br />
+linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/boot/iso/ubuntu-9.10-desktop-i386.iso noeject noprompt --<br />
+initrd (loop)/casper/initrd.lz<br />
+}</code></p>
+<p>Так-то.</p>

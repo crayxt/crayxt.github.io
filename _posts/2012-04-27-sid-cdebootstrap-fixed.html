@@ -1,0 +1,36 @@
+---
+layout: post
+title: Сборка казсида починена
+categories:
+- news
+tags:
+- cdebootstrap
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Последний удачно собранный Казсид был 6-го апреля 2012 огда. После этого я пару раз пробовал собрать его - однако, неудачно. Проблема была в том что пакет cdebootstrap при установке вспомогательного пакета cdebootstrap-helper-apt обновляет информацию о репозиториях, однако не может скачать пакеты Translations-en. Для того чтобы отключить эту фичу, нужно для apt передать опцию  </p>
+<blockquote>
+<p style="text-align: justify;"><code>-o Acquire::Languages=none</code></p>
+</blockquote>
+<p style="text-align: justify;">Пришлось пересобрать пакет /usr/share/cdebootstrap/cdebootstrap-helper-apt.deb который входит, как матрешка, в состав пакета cdebootstrap. Итак, что я сделал?</p>
+<p>Создал директорию unpack</p>
+<blockquote><p><code>mkdir unpack</code></p></blockquote>
+<p>Распаковал в нее cdebootstrap-helper-apt.deb</p>
+<blockquote><p><code>dpkg-deb -R /usr/share/cdebootstrap/cdebootstrap-helper-apt.deb unpack</code></p></blockquote>
+<p style="text-align: justify;">Поправил файл unpack/DEBIAN/postinst. Нашел строку</p>
+<blockquote><p><strong><code>apt-get -o Debug::NoLocking=1 update</code></strong></p></blockquote>
+<p style="text-align: justify;">Заменил на</p>
+<blockquote><p><strong><code>apt-get -o Acquire::Languages=none -o Debug::NoLocking=1 update</code></strong></p></blockquote>
+<p>Собрал пакет обратно, то есть</p>
+<blockquote><p><code>dpkg-deb -b unpack cdebootstrap-helper-apt.deb</code></p></blockquote>
+<p style="text-align: justify;">Ну и заменил оригинальный /usr/share/cdebootstrap/cdebootstrap-helper-apt.deb на полученный файл. Сборка теперь пошла успешно. А вот с помощью простого debootstrap до сих пор не собирается.</p>
+<p style="text-align: justify;">После этого, конечно, нужно написать в багзиллу Debian, что я и собираюсь сделать позже.</p>

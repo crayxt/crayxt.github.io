@@ -1,0 +1,23 @@
+---
+layout: post
+title: 'Arch Linux : Проблемы с libpng, libjpeg и Firefox'
+categories:
+- news
+tags:
+- Archlinux
+- libjpeg
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Опять 25, пакет libjpeg снова среди создающих проблемы пакетов. Вот моя запись про <a href="http://baurzhan.info/blog/2009/07/15/archlinux-libjpeg-error/" target="_blank">предыдущий</a> случай. <a href="http://www.archlinux.org/news/482/" target="_blank">Читаем</a> новости  - новые версии пакетов libjpeg и libpng требуют пересборки всех зависимых пакетов. Пакеты были пересобраны, но не все зеркала успели обновиться, так что немного ждем, или ищем новое зеркало.</p>
+<p>Также замечена проблема с браузером Firefox - при попытке открыть окно дополнений или загрузок, браузер крашится, и выскакивает окно с предложением отослать отчет разработчикам. Я нажал "Согласен", однако это окно не закрывалось еще минут 5, пришлось прибить. Временно поставил Chromium, буду искать решение проблемы. Кстати, браузер - firefox-branded-bin с AUR-a, т.е. официальная сборка от Mozilla.</p>
+<p><strong>UPD:</strong> Обновился полностью и поставил пакет libpng12 с AUR-a, теперь вроде как все работает, включая и файрфокс.</p>

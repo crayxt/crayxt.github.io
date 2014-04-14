@@ -1,0 +1,29 @@
+---
+layout: post
+title: Цепляем Android 4 телефон к Linux
+categories:
+- linux
+tags:
+- android
+- mtp
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: '%d1%86%d0%b5%d0%bf%d0%bb%d1%8f%d0%b5%d0%bc-android-4-%d1%82%d0%b5%d0%bb%d0%b5%d1%84%d0%be%d0%bd-%d0%ba-linux'
+  dsq_thread_id: '2595240122'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Пишут, что Google решила убрать возможность прицеплять Android 4 устройства к компьютерам как накопитель. Вместо этого, устройство на Android 4 (телефон) определяется как медиа устройство MTP. Это работает в ОС Windows XP и выше. В интернетах же пользователи жалуются, что поддержка MTP устройств в Linux ограничена. Однако, пару минут поиска в Гугле дали результат.</p>
+<p style="text-align: justify;">Прежде всего хочу отметить что использую Xfce как основное окружение рабочего  стола. Весьма вероятно, что в Gnome и в KDE все проще.</p>
+<p style="text-align: justify;">1. Debian</p>
+<p style="text-align: justify;">Ставим пакеты gigolo, gvfs-backends.</p>
+<p style="text-align: justify;">1. Fedora 17</p>
+<p style="text-align: justify;">Ставим пакеты gigolo, gvfs-gphoto2.</p>
+<p style="text-align: justify;">Ну вот, цепляем телефон, смотрим, чтобы он был в режиме MTP, открываем gigolo, и видим наше устройство. Двойной щелчок приведет вас к цели. В Debian-е только откройте настройки gigolo и смените gvfs-open на Thunar. Видимо, где-то обработчик не отрабатывает.</p>

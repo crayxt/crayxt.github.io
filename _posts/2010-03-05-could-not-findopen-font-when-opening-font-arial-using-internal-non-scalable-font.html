@@ -1,0 +1,27 @@
+---
+layout: post
+title: Could not find/open font when opening font "arial", using internal non-scalable
+  font
+categories:
+- news
+tags:
+- gnuplot
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Centos 5.4 x86_64, gnuplot 4.4.1rc</p>
+<p>Выдает такую ошибку.</p>
+<p>"Could not find/open font when opening font "arial", using internal non-scalable font"</p>
+<p>Здесь все понятно,  так как шрифт не свободный, и в Centos-e его нет.</p>
+<p>Решается так</p>
+<p>export GDFONTPATH=/usr/share/fonts/bitstream-vera<br />
+export GNUPLOT_DEFAULT_GDFONT=VeraMono</p>

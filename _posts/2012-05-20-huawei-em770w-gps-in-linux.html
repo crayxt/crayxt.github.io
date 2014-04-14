@@ -1,0 +1,52 @@
+---
+layout: post
+title: Huawei EM770W GPS in Linux
+categories:
+- useful
+tags:
+- EM770W
+- GPS
+- Huawei
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2601039966'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Действие происходит в  ОС Linux.</p>
+<p style="text-align: justify;">Чтобы заставить 3G модем Huawei EM770W работать как GPS-приемник, необходимо отправить ему на вход команду AT^WPDGP, для того чтобы отключить - AT^WPEND. Входом у модема работает первый из видимых в системе интерфейсов, то есть /dev/ttyUSB0.</p>
+<p style="text-align: justify;">Простым echo с перенаправлением вывода управляющая команда не отправлялась (в OpenBSD - отправлялась), пришлось использовать wvdial для этой цели. Понимаю, что путь этот обходной, но данный костыль показался мне достаточно надежным. Вот конфигурационный файл /etc/wvdial.conf</p>
+<blockquote>
+<p style="text-align: justify;">[Dialer gpson]<br />
+Init1 = ATZ<br />
+Init2 = AT^WPDGP<br />
+Modem = /dev/ttyUSB0</p>
+<p>[Dialer gpsoff]<br />
+Init1 = ATZ<br />
+Init2 = AT^WPEND<br />
+Modem = /dev/ttyUSB0</p></blockquote>
+<p style="text-align: justify;">Соответственно, запускать GPS-режим нужно так</p>
+<blockquote>
+<p style="text-align: justify;">sudo wvdial gpson</p>
+</blockquote>
+<p style="text-align: justify;">А выключать вот так</p>
+<blockquote>
+<p style="text-align: justify;">sudo wvdial gpsoff</p>
+</blockquote>
+<p style="text-align: justify;">Снимать же показания GPS нужно с третьего интерфейса /dev/ttyUSB3, они туда падают в стандартном формате NMEA. Только выйдите на открытое пространство, а то модем ничего ловить не будет. Так, на балконе моя Nokia спокойно находила пару спутников, а модем на нетбуке не хотел. Ну, или купите GPS-антенну. Правда, я не знаю, как ее подключить, но в Интернете найти инструкцию можно.</p>
+<p style="text-align: justify;">Ставим GPS клиент gpsd</p>
+<blockquote>
+<p style="text-align: justify;">apt-get install gpsd</p>
+</blockquote>
+<p style="text-align: justify;">и запускаем следующую команду чтобы слушать устройство</p>
+<blockquote>
+<p style="text-align: justify;">sudo gpsd -N /dev/ttyUSB3</p>
+</blockquote>
+<p style="text-align: justify;">Чтобы наглядно увидеть расположение спутников, подойдет графический клиент xgps, который в Debian-е находится в пакете gpsd-clients.</p>

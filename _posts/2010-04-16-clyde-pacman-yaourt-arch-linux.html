@@ -1,0 +1,32 @@
+---
+layout: post
+title: Clyde - достойная замена связке pacman/yaourt
+categories:
+- news
+tags:
+- clyde
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2596843977'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Отличные новости! Найдена достойная внимания утилитка - <a href="http://clyde.archuser.com/" target="_blank">Clyde</a>. Внимание! Проект еще в стадии бета. Использовать на свой страх и риск. Почитать о ней и посмотреть скриншоты Вы можете там же. Написана на Lua (потому что автор знает этот язык). Служит оберткой (wrapper) для libalpm, то есть на одном уровне с pacman (что-то в этом роде). Посмотрим на нескольких примерах, что она предоставляет и какие уникальные функции в ней есть. Итак, теперь вместо <strong>pacman</strong> подставляем <strong>clyde</strong>:</p>
+<p style="text-align: justify;"><strong>sudo clyde -Syu</strong></p>
+<p style="text-align: justify;">1) Держите свой каталог abs в вашем $HOME? Нужно скачать какой-либо пакет с AUR-a? Заходим в $HOME/abs, выполняем</p>
+<p style="text-align: justify;"><strong>clyde -G clyde-git</strong></p>
+<p style="text-align: justify;">получаем архив <strong>clyde-git.tar.gz </strong>и распакованный каталог <strong>clyde-git</strong>. Заходим в него и запускаем makepkg.</p>
+<p style="text-align: justify;">2) Обновляли систему с помощью команды sudo yaourt -Syu --aur? Теперь запускайте <strong>sudo clyde -Sayu</strong>.</p>
+<p style="text-align: justify;">Работает побыстрее yaourt-a, если замерять "на глазок".</p>
+<p style="text-align: justify;">При первом запуске создаст файл /etc/clyde.conf, куда скопирует настройки из файла конфигурации pacman-а.</p>
+<p>Ах да, не забудьте запустить</p>
+<p>clyde --stats</p>
+<p>для получения наглядной информации о состоянии вашей системы.</p>
+<p><strong>UPD</strong>: <a href="http://bbs.archlinux.org/viewtopic.php?id=91860" target="_blank">Ветка</a> обсуждения на форуме.</p>

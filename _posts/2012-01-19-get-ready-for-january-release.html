@@ -1,0 +1,27 @@
+---
+layout: post
+title: Готовимся к январскому выпуску
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Как и следует из заголовка этого поста, январский выпуск Казсида потихонечку идет к нам. Что же в нем будет интересного?</p>
+<p>1) <a href="https://github.com/crayxt/kazsid/commit/706bac59402f77b6e1d957b18b1af3684568b561" target="_blank">Починен</a> автовход в режиме живого диска;</p>
+<p>2) Программа установки обновлена до последней версии, а также <a href="https://github.com/taem/live-installer" target="_blank">локализована</a> на казахский и русский языки;</p>
+<p>3) Wine <a href="https://github.com/crayxt/kazsid/commit/72dfacc3c0fe3579e31d3531da29070b40d9598b" target="_blank">теперь</a> берется из официального <a href="https://launchpad.net/~ubuntu-wine/+archive/ppa" target="_blank">PPA</a> для Ubuntu;</p>
+<p>4) <a href="https://github.com/crayxt/kazsid/commit/67c917de585d43b8764bd4ee6c0083dfd2417afa" target="_blank">Починены</a> файловые ассоциации для файлов pdf, zip, rar, jpg и png. PDF открывались Gimp-ом, архивы - Comix-ом а графические файлы - системным браузером, причем или в Iceweasel, или даже в Wine Internet Explorer! Напрягало жуть.</p>
+<p style="text-align: justify;">Хочется заметить, что большинство настроек хранится в /etc/skel и копируется каждому новому пользователю в домашнюю директорию. Да, я знаю, что это - не самый верный путь, однако, других способов сохранения настроек не вижу. Казсид должен быть максимально готов к работе "из коробки", сразу после установки. В одном из следующих постов опишу процесс установки, а также, какие пост-установочные работы провожу лично я.</p>
+<p style="text-align: justify;">Ну и как всегда, еще <a href="https://github.com/crayxt/kazsid/commits/master" target="_blank">много</a> всяких мелочей допилено. Пакеты будут обновлены до самых последних версий, репозиторий по-прежнему будет <strong>http://ftp.ru.debian.org</strong>, так как в Казахстанском сегменте сети надежных зеркал нет (поправьте меня, если ошибаюсь).</p>
+<p style="text-align: justify;">Ждем теперь ядро в репозитории, если выпустят 3.2.* в sid, то после недельки тестирования можно будет и собирать очередной, январский Казсид.</p>

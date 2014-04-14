@@ -1,0 +1,34 @@
+---
+layout: post
+title: Как запустить kazsid на моем компьютере?
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Значится, так. Делаем все на свой страх и риск. Автор снимает с себя любую ответственность за ваши действия.</p>
+<p style="text-align: justify;">Вы решили присоединиться к многочисленной армии фанатов Linux, и установить себе, наконец-таки, Kazsid. Поздравляю! Вы сделали правильный выбор. Но, если вам страшно ставить с нуля, вы можете попробовать загрузить Kazsid на вашем компьютере без установки на жесткий диск. Казсид распространяется в виде ISO образа, значит, его можно записать на CD/DVD и загружать компьютер с него. Но так неинтересно, да и потом - давно вы записывали оптический диск в последний раз? Это - прошлый век. Мы пойдем другим путём, и покажем, как организовать это дело по-научному. Обойдемся без потраченных CD/DVD дисков.</p>
+<p style="text-align: justify;">Что потребуется? Вкратце, чтобы загрузить Линукс с флешки, Вам потребуется 1) Линукс 2) Флешка 3) Компьютер/ноут которые могут загружаться с USB-устройств.</p>
+<p style="text-align: justify;">1. <a href="http://baurzhan.info/2010/12/06/how-to-install-grub2-on-usb-device/" target="_blank">Ставим</a> загрузчик Grub2 на вашу флешку.</p>
+<p style="text-align: justify;">2. Скачиваем <a href="http://baurzhan.info/tag/kazsid/" target="_blank">распоследний</a> Kazsid, и копируем его на флешку, скажем, в корень, и переименовываем как <strong>kazsid.iso. </strong>Убедитесь, что у вас достаточно свободного места на флешке. Поудаляйте все фильмы, нечего их таскать на флешке.</p>
+<p style="text-align: justify;">3. Если вы успешно установили Grub2, то у вас на флешке появился каталог boot, а в нем grub. В этом-то каталоге grub должен лежать файл grub.cfg, то есть это файл настроек загрузчика. Вот готовый конфиг, который поможет вам загрузить Kazsid.</p>
+<blockquote>
+<p style="text-align: justify;">menuentry "Kazsid" {<br />
+loopback loop /kazsid.iso<br />
+linux (loop)/live/vmlinuz boot=live config locales=kk_KZ.UTF-8 tz=Asia/Almaty keyb=en hostname=d0 username=baur  quiet splash fromiso=/dev/sdb1/kazsid.iso<br />
+initrd (loop)/live/initrd.img<br />
+}</p>
+</blockquote>
+<p style="text-align: justify;">Как видим, можно изменить широкий спектр параметров - от имени пользователя до локали. Здесь показан случай, когда на вашем компьютере есть один жесткий диск, то есть он будет в Linux определен как /dev/sda. Флешка, то есть второй диск, будет определена как /deb/sdb1. Если у вас больше чем один жесткий диск, снимите второй, могут возникнуть проблемы с загрузчиком, скажем, если вы случайно снимете тот диск, на котором загрузчик и находится. В любом случае, читайте Интернеты.</p>
+<p style="text-align: justify;"><strong>Про установку поговорим в другой раз.</strong></p>

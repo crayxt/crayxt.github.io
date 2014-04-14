@@ -1,0 +1,23 @@
+---
+layout: post
+title: Настройка Wi-Fi в kazsid (с помощью Wicd)
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;"><a href="http://baurzhan.info/2010/11/24/kazsid-0-6-wicd/" target="_blank">Раньше</a> я упоминал, что в релизе казсида 0.6 не смог получить беспроводную сеть работающую из коробки. То есть, демон <strong>Wicd</strong> не нашел беспроводную карточку. Однако, это решено. Оказывается, демон <strong>Wicd</strong> при старте сам создает себе файлы конфигурации, и прописывает в них те сетевые устройства, что найдет. Wi-Fi карта на моем ноутбуке не определилась, что странно. Тот же самый Wicd неплохо работает в Arch Linux.</p>
+<p style="text-align: justify;">Как решить проблему? Открываем настройки Wicd, и прописываем в поле <strong>Wireless interface</strong> значение <strong>wlan0</strong>. Сохраняем, жмем "Обновить". Ура, теперь сети ищутся.</p>
+<p style="text-align: justify;">Ах да, беспроводная сеть будет работать, только если у вас установлена прошивка для вашей беспроводной карты. Kazsid идет с некотороми прошивками из коробки, как минимум, карточки от Intel работать будут.</p>
+<p style="text-align: justify;"><strong>Еще</strong>: Некоторые карточки определяются не как wlan0, а, к примеру, ath0 (Очень редко). Смотрите вывод ifconfig для справки.</p>

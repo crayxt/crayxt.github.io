@@ -1,0 +1,26 @@
+---
+layout: post
+title: openSUSE, Kiwi добавляет поддержку загрузки fromiso
+categories:
+- news
+tags:
+- openSUSE
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Напомню, для тех немного "не в теме" про то, что такое загрузка fromiso/isofrom. Это - очень полезная опция для тестирования Live CD/DVD.</p>
+<p style="text-align: justify;">Grub2 "умеет" монтировать ISO образы и "доставать" из них файлы ядра и initrd. Потом управление передается извлеченному ядру, и система грузится дальше. С этим понятно, загрузочные скрипты отработали свою часть, но как им получить доступ к сжатой Live-системе, которая по-прежнему находится в ISO файле? Вот тут и приходит на помощь опция fromiso. Загрузочный скрипт парсит параметры, переданные ядру при загрузке, находит в них опцию  fromiso, монтирует указанный ISO образ и загрузка продолжается с него.</p>
+<p style="text-align: justify;">То есть ставите загрузчик на USB флешку, закидываете на нее же ISO образ Live CD/DVD без распаковки, прописываете необходимые строки в конфигурационном файле Grub 2, и грузитесь без лишних проблем и без траты оптических носителей. Большинство современных и не очень компьютеров умеют загружаться с USB флешки. Удобно ведь, согласитесь.</p>
+<p style="text-align: justify;">Эта или похожая опции доступны в Ubuntu (casper), Debian (live скрипты), ArchLinux (archiso).</p>
+<p style="text-align: justify;">А вот, собственно, и новость. Недавно в Kiwi, системе сборки образов openSUSE, тоже <a href="https://github.com/openSUSE/kiwi/commit/c17cc9567b4c32b8ea6dbd2d049d8090481dce39" target="_blank">добавили</a> эту возможность. Эта опция пока не доступна в susestudio.com, но, надеюсь, что скоро появится. Так что собранные с помощью susestudio.com Live CD образы openSUSE будут еще удобнее!</p>
+<p style="text-align: justify;">А кто интересуется, подписывайтесь на лист рассылки Kiwi, <strong><a href="http://groups.google.com/group/kiwi-images" target="_blank">groups.google.com/group/kiwi-images</a></strong>.</p>
+<p>&nbsp;</p>

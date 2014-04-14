@@ -1,0 +1,26 @@
+---
+layout: post
+title: OpenBSD 5.1 released
+categories:
+- news
+tags:
+- openbsd
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">OpenBSD - своеобразная ОС, основанная на традиционной версии BSD 4.4. Впрочем, о ней все таки лучше читать на Википедии, куда я вас и <a href="http://ru.wikipedia.org/wiki/OpenBSD" target="_blank">отправляю</a>.</p>
+<p style="text-align: justify;">Я ставил OpenBSD 5.0 на обе своих машины, и на обоих она работала, что уже интересно. Нам, привыкшим к Линуксу, система не кажется слишком запутанной, скорее даже наоборот, в ней все проще и логичнее устроено, чем, скажем, в Дебиане.</p>
+<p style="text-align: justify;">Как и пишется в Википедии, разработчики уделяют много внимания безопасности, криптографии и man-страницам. Согласно идеологии проекта, у man-страниц - наивысший приоритет как источника информации о чем-либо в системе. Не верьте на слово всяким руководствам - читайте man-страницы.</p>
+<p style="text-align: justify;">Чем я смог помочь проекту? Следуя указанию "Помоги себе сам", заставил работать свой 3G Modem Huawei EM 770W, который внутри нетбука подключен по mini PCIe, и работает с драйвером umsm. Если вы ожидаете истории, как я полез в код и начал его мужественно править, то вы меня слишком переоцениваете. Всего-то нужно было прописать ID производителя и продукта в заголовочный файл, затем и в код драйвера, а затем перекомпилировать ядро. Честно - все было просто. Затем последовало <a href="http://marc.info/?l=openbsd-misc&amp;m=132158603928887&amp;w=2" target="_blank">письмо</a> в список рассылки - и изменения уже в <a href="http://www.openbsd.org/cgi-bin/cvsweb/src/sys/dev/usb/umsm.c?rev=1.82;content-type=text%2Fx-cvsweb-markup" target="_blank">составе</a> ОС.</p>
+<p style="text-align: justify;">И, наконец, к чему приурочен этот пост - <a href="http://www.openbsd.org/51.html" target="_blank">OpenBSD 5.1 вышла</a>! Самое время скачать образ ISO, и "пощупать", хотя бы и в виртуалке.</p>
+<p style="text-align: justify;"><strong>UPD1</strong>: Смотрю в ISO-образ - а он был собран 12 февраля. Вот это стабильность, так давно собрать и выкладывать только теперь! Для тех кто хочет попробовать наипоследнейшие возможности - качайте snapshots, они, в основном, тоже достаточно стабильны.</p>
+<p style="text-align: justify;">

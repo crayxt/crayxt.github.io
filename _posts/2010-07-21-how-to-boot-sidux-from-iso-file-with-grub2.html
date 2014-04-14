@@ -1,0 +1,26 @@
+---
+layout: post
+title: How-to boot Sidux from ISO file with grub2
+categories:
+- news
+tags:
+- sidux
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: ''
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>There is no clear manual at sidux manuals. They only said, you should install their package named grub2-fll-iso or something like it. Sure, you can load and boot Sidux from iso file, in existing Linux installation, with grub2. I used Linux Mint 9.</p>
+<p>Here is the part of my /boot/grub/grub.cfg</p>
+<pre style="padding-left: 30px;"><strong>loopback loop (hd0,0)/sidux.iso</strong></pre>
+<pre style="padding-left: 30px;"><strong>linux (loop)/boot/vmlinuz0.686 boot=fll fromiso=/sidux.iso</strong></pre>
+<pre style="padding-left: 30px;"><strong>initrd (loop)/boot/initrd0.686</strong></pre>
+<p>That's it. sidux.iso in located in my / directory, which is /dev/sda1</p>

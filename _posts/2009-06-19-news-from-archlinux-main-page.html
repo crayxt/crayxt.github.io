@@ -1,0 +1,26 @@
+---
+layout: post
+title: Новости с главной страницы Archlinux
+categories:
+- news
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: crayxt.blogspot.com
+  blogger_author: crayhttp://www.blogger.com/profile/10619159969647264476noreply@blogger.com
+  blogger_permalink: /2009/06/archlinux_19.html
+  _edit_last: '2'
+  _wp_old_slug: '%d0%bd%d0%be%d0%b2%d0%be%d1%81%d1%82%d0%b8-%d1%81-%d0%b3%d0%bb%d0%b0%d0%b2%d0%bd%d0%be%d0%b9-%d1%81%d1%82%d1%80%d0%b0%d0%bd%d0%b8%d1%86%d1%8b-archlinux'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p><span style="font-weight: bold;">В новой версии пакета module-init-tools изменилось расположение файла настроек </span><br /><span style="font-size:78%;">Примечание от меня: этот пакет отвечает за инициализацию модулей ядра, какие модули блокировать, а каким необходимы опции загрузки.</span></p>
+<p>Новая версия module-init-tools за номером 3.8 сменила месторасположение файла настроек: файл /etc/modprobe.conf больше не будет учитываться, вместо него будет использован файл /etc/modprobe.d/modprobe.conf. Файлы, расположенные в каталоге /etc/modprobe.d и не оканчивающиеся на .conf в будущем будут игнорированы. Пожалуйста, после обновления измените ваши файлы настроек.
+<p align="justify">Оригинал<br /><code><br />New module-init-tools changes modprobe configuration file location</p>
+<p>The new module-init-tools 3.8 package changes the location of the configuration file: /etc/modprobe.conf is no longer read, instead /etc/modprobe.d/modprobe.conf is used. Files in /etc/modprobe.d without a .conf suffix will be ignored in the future. Please adjust your local configuration files after the update.<br /></code><code></code></p>

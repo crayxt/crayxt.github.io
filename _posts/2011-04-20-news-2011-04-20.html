@@ -1,0 +1,28 @@
+---
+layout: post
+title: Выпуск новостей
+categories:
+- news
+tags:
+- haiku os
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">А действительно, что нового?</p>
+<p style="text-align: justify;">1) Автор сего блога опять заинтересовался темой <a href="http://haiku-os.org/" target="_blank">Haiku OS</a>. Оказывается, ею уже можно пользоваться.</p>
+<p style="text-align: justify;">2) На обоих ноутах возникает проблема с Haiku. На старом HP 530 клавиатура и тачпад <a href="http://dev.haiku-os.org/ticket/4315" target="_blank">не работают</a>. На нетбуке разрешение 1024х600 <a href="http://dev.haiku-os.org/ticket/7441" target="_blank">не выставлялось</a>. Есть над чем работать!</p>
+<p style="text-align: justify;">3) Ударом молотка драйвер видео для нетбука был подогнан, и разрешение экрана установилось.</p>
+<p style="text-align: justify;">4) Haiku в отместку покоцала мои ext3, ext4 разделы. По итогам проверки разделов появился следующий пункт.</p>
+<p style="text-align: justify;">5) <strong>1. </strong>Всегда проверяйте разделы при загрузке, то есть в /etc/fstab выставляйте последние параметры для разделов в 1, чтобы проверялось автоматом. <strong>2.</strong> Не монтируйте неродные для Haiku разделы в ней в режиме чтение/запись, а монтируйте только для чтения.</p>
+<p style="text-align: justify;">6) Запилил в Haiku OS казахскую раскладку, чтобы была. Она <a href="http://dev.haiku-os.org/changeset/41268" target="_blank">уже</a> в исходном коде. Основана на базе русской, естесственно. Есть идея переделать ее, чтобы по Альт+Цифра выводилась цифра, а то у нас в казахской ракладке укороченные клавиатуры обижены на эту тему. Приходится в англ раскладку все время переключаться. Спасибо, siaržuk!</p>
+<p style="text-align: justify;">7) Xfce 4.8 в Debian-е таки переехал из ветки experimental в ветку sid. Ждите новостей по <strong>Казсид</strong>у!</p>

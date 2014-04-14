@@ -1,0 +1,25 @@
+---
+layout: post
+title: Как я переводил shared-mime-info на казахский
+categories:
+- kazakh
+tags:
+- shared-mime-info
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: '%d0%ba%d0%b0%d0%ba-%d1%8f-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%be%d0%b4%d0%b8%d0%bb-shared-mime-info-%d0%bd%d0%b0-%d0%ba%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d0%ba%d0%b8%d0%b9'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Есть такая штука - MIME типы файлов, это вроде базы данных типов файлов, по которым они определяются. Относится к проекту</p>
+<p><a href="http://www.freedesktop.org/wiki/Home" rel="nofollow"><img alt="freedesktop.org" src="http://www.freedesktop.org/png/freedesktop-logo.png" /></a></p>
+<p>то есть, является стандартом. По сути, для переводчика, это файл с более 600 видами типов файлов, для которых нужно написать соответсвующее название на переводимый язык. Переводить начал еще летом 2009-го года. Началось с того, что в файловом менеджере, которым я пользуюсь, да и во многих других, есть такая колонка в отображении файлов, как его тип. На скриншоте я поставил красную стрелку, чтобы было понятнее :).</p>
+<p><a href="http://baurzhan.info/wp-content/uploads/2010/03/shared-mime-example-1.png"><img class="aligncenter size-medium wp-image-358" title="shared-mime-example-1" alt="" src="http://baurzhan.info/wp-content/uploads/2010/03/shared-mime-example-1-300x160.png" width="300" height="160" /></a></p>
+<p style="text-align: justify;">Не очень-то и красиво. Решил и это дело поправить. Нашел сайт проекта. Вот <a href="http://www.freedesktop.org/wiki/Software/shared-mime-info" target="_blank" rel="nofollow">он</a>. Однако, переводы они хостят на системе <a href="http://www.transifex.net/" target="_blank" rel="nofollow">Transifex</a> - что то типа launchpad.net, ограничино лишь переводами. Что ж, регистрироваться где попало - не впервой. И тут получается задержка, так как казахского языка в списке нету, а на заявление, оставленно через форму обратной связи никто не отвечает. Не ответили и на один из рабочих адресов, человека, который анонсировал новый релиз системы в рассылке xfce-translators. И что бы вы думали? Оказывается, можно отправить перевод, и не будучи ни в какой группе. Просто в таргет файле пишу po/kk.po, и готово - файл отправлен. Также появился <a href="http://cgit.freedesktop.org/xdg/shared-mime-info/" target="_blank" rel="nofollow">коммит</a> в git-репозитории. Такие дела. Теперь ждем следующего релиза и обновления в Arch Linux-е.</p>

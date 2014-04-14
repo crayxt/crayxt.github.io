@@ -1,0 +1,52 @@
+---
+layout: post
+title: Год на гигагерце, или как снизить частоту процессора
+categories:
+- linux
+tags:
+- cpufrequtils
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: '%d0%b3%d0%be%d0%b4-%d0%bd%d0%b0-%d0%b3%d0%b8%d0%b3%d0%b0%d0%b3%d0%b5%d1%80%d1%86%d0%b5-%d0%b8%d0%bb%d0%b8-%d0%ba%d0%b0%d0%ba-%d0%b7%d0%b0%d0%bd%d0%b8%d0%b7%d0%b8%d1%82%d1%8c-%d1%87%d0%b0%d1%81%d1%82'
+  dsq_thread_id: '2597932331'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Ноутбук - дело тонкое. В прямом смысле этого слова. Поэтому и проблема вентиляции и охлаждения также имеет место быть. А вы не сталкивались с этим? Мой ноутбук сутками включен. Подставки под него у меня нет, зато есть другое средство - утилита cpufrequtils в Arch Linux. Раз выделяемое процессором тепло, а значит и его мощность зависят от его частоты, то почему бы ее не выставить на минимум, которого вам в большинстве случаев будет достаточно, тем более что новые и не очень процессоры умеют занижать свою частоту. А governor (режим работы проца) использовать powersave. Что я успешно и проделал, а что получил - процессор очень редко нагревается до таких температур, чтобы включился вентилятор охлаждения, ну разве что только при компиляции чего-нибудь или когда браузер обрабатывает особенно обвешанную скриптами и баннерами веб-страницу - привет, владельцы мегаторренца!</p>
+<p>Что и где править?</p>
+<p>Смотрим!</p>
+<pre><strong>cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
+2167000 1667000 1333000 1000000</strong></pre>
+<p>Следовательно, минимальная поддерживаемая частота - 1 ГГц. Чтож, один так один. Когда-то и на половине этого работал.</p>
+<p>В любимом Арче ставим пакет cpufrequtils</p>
+<pre><strong>#pacman -S cpufrequtils</strong>
+</pre>
+<p>Дальше править файл <strong>/etc/conf.d/cpufreq</strong>:</p>
+<pre><strong># configuration for cpufreq control</strong><strong>
+# valid governors:</strong><strong>
+#  ondemand, performance, powersave,</strong><strong>
+#  conservative, userspace
+</strong><strong>governor="powersave"</strong><strong>
+# valid suffixes: Hz, kHz (default), MHz, GHz, THz</strong><strong>
+min_freq="1GHz"
+max_freq="1GHz"</strong></pre>
+<p>Ну и наконец, добавим в файле <strong>/etc/rc.conf</strong> в секцию <strong>MODULES</strong> значение <strong>acpi-cpufreq</strong>, а в секцию <strong>DAEMONS</strong> - значение <strong>cpufreq</strong>. После перезагрузки наблюдаем, что модули загружены.</p>
+<pre><strong>$lsmod | grep cpu
+cpufreq_powersave        646  2
+acpi_cpufreq            5599  0
+freq_table              1955  1 acpi_cpufreq
+processor              25790  3 acpi_cpufreq</strong></pre>
+<p>И что частота ядра соответствует тому, что мы заказывали:</p>
+<pre><strong>$cpufreq-info | grep "CPU freq"
+ current CPU frequency is 1000 MHz.
+ current CPU frequency is 1000 MHz.
+
+</strong></pre>
+<p>Готово!</p>

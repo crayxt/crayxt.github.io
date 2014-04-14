@@ -1,0 +1,28 @@
+---
+layout: post
+title: Dropbox в Debian
+categories:
+- linux
+tags:
+- debian
+- dropbox
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: ''
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Удивительное рядом, оказывается, готового пакета Dropbox для Debiana нет. Придется собирать руками! Не беда, на форуме нашел готовый <a href="http://forums.debian.net/viewtopic.php?f=16&amp;t=49019#p281939" target="_blank">рецептик</a> от hadret</p>
+<blockquote><p><code># echo deb-src http://mentors.debian.net/debian unstable main contrib non-free &gt;&gt; /etc/apt/sources.list<br />
+# aptitude update<br />
+# aptitude build-deb dropbox<br />
+~ apt-get source -b dropbox<br />
+# dpkg -i dropbox_0.7.97-1_*.deb</code></p></blockquote>
+<p>Проверено - работает</p>

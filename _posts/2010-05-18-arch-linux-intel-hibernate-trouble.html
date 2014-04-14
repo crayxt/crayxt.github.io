@@ -1,0 +1,24 @@
+---
+layout: post
+title: Intel, linux, hibernate troubles
+categories:
+- news
+tags:
+- intel
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p><a href="http://bbs.archlinux.org/viewtopic.php?id=91375" target="_blank">Тема на форуме</a></p>
+<p style="text-align: justify;">Вы используете Arch Linux, видеокарту от Intel (встроенную), у вас включен KMS?</p>
+<p style="text-align: justify;">Симптомы - если отправить компьютер в гибернацию, а затем "разбудить", ни одно приложение работать не будет, все заканчивается segfault-ом. Решил проблему, удалив модули ﻿﻿'i915' и 'intel-agp' из строчки  'MODULES' в файле '/etc/mkinitcpio.conf'. Собственно, добавлял эти модули затем, чтобы режим графики при загрузке в <a href="http://wiki.archlinux.org/index.php/KMS" target="_blank">KMS</a> переключался чуть-чуть раньше. Проблема пока не решена, насколько я знаю, от ﻿﻿KMS отказываться смысла не вижу.</p>
+<p style="text-align: justify;"><a href="http://wiki.archlinux.org/index.php/Intel#KMS_.28Kernel_Mode_Setting.29" target="_blank">Wiki-страница</a> настройки KMS для видеокарт от Intel</p>
+<p style="text-align: justify;">P.S.: ﻿Just delete 'i915' and 'intel-agp' from 'MODULES' in '/etc/mkinitcpio.conf'. ;)</p>

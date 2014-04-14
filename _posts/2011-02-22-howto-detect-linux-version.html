@@ -1,0 +1,43 @@
+---
+layout: post
+title: Как определить версию линукс
+categories:
+- humour
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: howto-know-linux-version
+  dsq_thread_id: '2595142674'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Предположим, у вас есть компьютер с Linux, и вам нужно узнать, какой именно Linux там установлен. Рассмотрим несколько вариантов:</p>
+<p style="text-align: justify;">1) Вы можете зайти в систему и запустить программу. Отлично! Запускайте эмулятор терминала (что-то из xterm,xfce4-terminal,gnome-terminal,konsole), затем вводите команду</p>
+<blockquote style="text-align: justify;"><p>lsb_release -a</p></blockquote>
+<p style="text-align: justify;">Вывод будет примерно таким</p>
+<blockquote style="text-align: justify;"><p>No LSB modules are available.<br />
+Distributor ID:    Debian<br />
+Description:    Debian GNU/Linux testing (wheezy)<br />
+Release:    testing<br />
+Codename:    wheezy</p></blockquote>
+<p style="text-align: justify;">Если этого мало, смотрим дальше</p>
+<p style="text-align: justify;"><!--more--></p>
+<p style="text-align: justify;">Какой именно Linux, смотреть так</p>
+<blockquote style="text-align: justify;"><p>cat /etc/issue</p></blockquote>
+<p style="text-align: justify;">Здесь будет что-то вроде этого</p>
+<blockquote style="text-align: justify;"><p>Debian GNU/Linux wheezy/sid \n \l</p></blockquote>
+<p style="text-align: justify;">На форумах часто просят показать версию ядра, смотрим так</p>
+<blockquote style="text-align: justify;"><p>uname -a</p></blockquote>
+<p style="text-align: justify;">А вот и вывод</p>
+<blockquote style="text-align: justify;"><p>Linux d0 2.6.32-5-686 #1 SMP Wed Jan 12 04:01:41 UTC 2011 i686 GNU/Linux</p></blockquote>
+<p style="text-align: justify;">Скопируйте эту строчку и перешлите тому, кто запросит версию ядра в ответ на ваш вопрос о помощи.</p>
+<p style="text-align: justify;">2) Зайти в систему вы не можете, здесь есть общий совет, перезагрузите компьютер (если это не сервер) и посмотрите, что написано в загрузочном меню. Обычно там указан дистрибутив, значит, довольствуемся этой информацией. Вот пример скриншота такого меню. Это меню появляется обычно сразу после выдачи информации BIOS.</p>
+<p><a href="http://baurzhan.info/wp-content/uploads/2011/02/grub-screenshot.png"><img class="aligncenter size-medium wp-image-991" title="grub-screenshot" src="http://baurzhan.info/wp-content/uploads/2011/02/grub-screenshot-300x234.png" alt="" width="300" height="234" /></a></p>
+<p style="text-align: justify;">3) Экзотика. Когда я заполучил нетбук, на нем был установлен Linpus Linux Lite. Вводить команды там было негде, так что я просто почитал User Manual, а также удосужился прочесть надписи на коробке.</p>

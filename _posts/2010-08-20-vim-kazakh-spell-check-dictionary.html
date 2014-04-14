@@ -1,0 +1,43 @@
+---
+layout: post
+title: Vim kazakh spellcheck dictionary
+categories:
+- useful
+tags:
+- vim
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2598396027'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Ого! Vim умеет и орфографию или как ее там, проверять. Готовых файлов для казахского языка нету (Я удивлён!). Но в документации есть описание, как сгенерить словарь для Vim из myspell словарей.</p>
+<p style="text-align: justify;">Приступим! Берем готовые словари казахского языка для OpenOffice, делаем копии из них, вот так</p>
+<pre style="text-align: justify; padding-left: 30px;"><strong>ls -l ~/vim
+total 4392
+-rw-r--r-- 1 baur users  103192 2010-08-20 11:06 kk_KZ.aff
+-rw-r--r-- 1 baur users 2130055 2010-08-20 11:06 kk_KZ.dic
+-rw-r--r-- 1 baur users  103192 2010-08-20 10:50 kk_KZ.orig.aff
+-rw-r--r-- 1 baur users 2130055 2010-08-20 10:50 kk_KZ.orig.dic</strong></pre>
+<p style="text-align: justify;">У вас должна быть сгенерена локаль kk_KZ.UTF-8, если вы хотите повторить мои действия. Просто раскомментируйте строку с kk_KZ.UTF-8 UTF-8 в /etc/locale.gen, затем запустите от root команду</p>
+<pre style="text-align: justify; padding-left: 30px;"><strong>locale-gen</strong></pre>
+<p style="text-align: justify;">Идем в ту папку где лежат ваши словари. Если вы работаете в этой локали то просто запустите vim, если же нет, то запускайте vim от своего имени вот так</p>
+<pre style="text-align: justify; padding-left: 30px;"><strong>env LANG=kk_KZ.UTF-8 vim</strong></pre>
+<p style="text-align: justify;">Выполняем команду в vim</p>
+<pre style="text-align: justify; padding-left: 30px;"><strong>:mkspell! ~/vim/kk kk_KZ</strong></pre>
+<p style="text-align: justify;">Выдаст пару десятков ошибок, то есть ругнётся на файл, а затем приступит к генерации собственно словаря. Займет прилично вашего процессорного времени и памяти, так как vim будет использовать алгоритмы упорядочивания словаря. У меня заняло меньше 5-ти минут. Готово. На выходе получите готовый файл <strong>kk.utf-8.spl</strong>. Ложите его куда следует, а именно</p>
+<pre style="text-align: justify; padding-left: 30px;"><strong>mkdir -p ~/.vim/spell</strong></pre>
+<pre style="text-align: justify; padding-left: 30px;"><strong>mv kk.utf-8.spl /home/baur/.vim/spell/</strong></pre>
+<p style="text-align: justify;">Запускаете vim, задаете команду установки языка проверки.</p>
+<pre style="text-align: justify; padding-left: 30px;"><strong>:set spell spelllang=kk</strong></pre>
+<p style="text-align: justify;">Готово, работает, уносите! А вот и скриншот:</p>
+<p style="text-align: justify;"><a href="http://baurzhan.info/wp-content/uploads/2010/08/vim-kaz-spell.png"><img class="alignnone size-medium wp-image-681" title="vim-kaz-spell" alt="" src="http://baurzhan.info/wp-content/uploads/2010/08/vim-kaz-spell-300x110.png" width="300" height="110" /></a></p>
+<p style="text-align: justify;">P.S.: Что неудобно - из режима в режим только на английском переключается. Я неправильно настроил раскладку?</p>
+<p style="text-align: justify;">P.S.S: А <a href="http://www.ashep.org/2010/proverka-pravopisaniya-v-vim/" target="_blank">вот</a> где я прочитал про это, там же смотрите про команды. А вот и готовый файл http://files.baurzhan.info/kk.utf-8.spl</p>

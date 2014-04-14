@@ -1,0 +1,25 @@
+---
+layout: post
+title: Частичное опровержение предыдущей записи
+categories:
+- news
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Ого, а название-то какое! Дело в том, что после установки предыдущей сборки Казсида 20120330, я решил через два дня ее обновить, но столкнулся с тем, что меню в libreoffice глючило. Я решил что проблема именно в самом пакете libreoffice, но читая дальше багрепорты дебиана узнал что вначале проблему перекинули на пакет libcairo2, а затем обнаружился и настоящий виновник проблемы - драйвер Intel для видеокарты. В sid-e уже починили, вот <a href="http://packages.qa.debian.org/x/xserver-xorg-video-intel/news/20120405T190304Z.html" target="_blank">доказательная ссылка</a>.</p>
+<p>Цитирую<br />
+<code>Changes:<br />
+xserver-xorg-video-intel (2:2.18.0-2) unstable; urgency=low.<br />
+* Cherry-pick a change from upstream to fix a bug triggered by cairo 1.12:<br />
+uxa: Remove broken render glyphs-to-dst</code></p>
+<p>И это хорошо!</p>

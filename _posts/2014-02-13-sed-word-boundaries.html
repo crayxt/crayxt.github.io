@@ -1,0 +1,25 @@
+---
+layout: post
+title: sed word boundaries
+categories:
+- personal
+tags:
+- regexp
+- sed
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2594825175'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Как-то искал правило регулярных выражений для замены одиночной цифры на 0+цифра. Конечно, имеются в виду таймстампы, где надо было править время типа 9:00 на 09:00, чтобы парсер не давился.</p>
+<p>И вот оно, полезное правило (переношу сюда из инбокса):</p>
+<blockquote><p><code>sed 's/\&lt;[0-9]\&gt;/0&amp;/g' infile</code></p></blockquote>
+<p>оказалось, что <code>\&lt;</code> и <code>\&gt;</code> - границы слов, нужно экранировать. Спасибо, Интернет, что подсказал. А я в питоне такие цифры туда-сюда конвертил.</p>

@@ -1,0 +1,25 @@
+---
+layout: post
+title: Libreoffice в Debian sid-e "глючит", live-config и lightdm починили
+categories:
+- news
+tags:
+- libreoffice
+- live-config
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2598035961'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">1-го апреля обновился пакет libreoffice с  версии 3.4.6 до 3.5.2-rc2. Казалось бы, что может пойти не так, однако, часть надписей в меню отсутствует, а вместо них пустые места обозначены. Вот ссылка на <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=666565" target="_blank">баг репорт</a>.</p>
+<p style="text-align: justify;">Решение такое - откатите libcairo до версии из Debian testing. Или ждите пока решат.</p>
+<p style="text-align: justify;">Проблему при загрузке live образов тоже починили. Про нее я писал в примечаниях к предыдущему выпуску Казсида. Надо проверить как оно там, но релиза пока не было. Вот ссылка на <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=666866" target="_blank">баг репорт</a>, а вот и внесенная <a href="http://live.debian.net/gitweb?p=live-config.git;a=commit;h=dc84ecc6ac52ab1265dc8a07c97d6f1e46e0750e" target="_blank">поправка</a>. Как будут новости, отпишусь по этому вопросу.</p>
+<p style="text-align: justify;">И к последнему - менеджер входа в систему lightdm тоже <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=665710" target="_blank">починили</a> в Debian sid-e, теперь отдельный конфигурационный файл покладывать не нужно. Ну и слава богу.</p>

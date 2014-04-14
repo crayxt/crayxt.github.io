@@ -1,0 +1,29 @@
+---
+layout: post
+title: Debian на казахском
+categories:
+- news
+tags:
+- debian
+- live cd
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: debian-%d0%bd%d0%b0-%d0%ba%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d0%ba%d0%be%d0%bc
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Немного слукавлю в заголовке, ибо на казахском будет только Xfce, но в основе системы лежит таки ﻿﻿Debian.</p>
+<p style="text-align: justify;">Камрад taem подкинул ссылку на сервис генерации live сборок Debian-а, чем я незамедлительно и воспользовался. (<a href="http://live-helper.debian.net/cgi-bin/live-helper" target="_blank">http://live-helper.debian.net/cgi-bin/live-helper</a>)</p>
+<p style="text-align: justify;">Принцип такой - указываете тип сборки, в моем случае - xfce. Вводите адрес, и примерно через полчаса ссылка у меня была на почте.</p>
+<p style="text-align: justify;">Логинимся и видим что только английская локаль сгенерена, это дело поправимое. Правим файл /etc/locale.gen, раскомментим строку</p>
+<pre style="padding-left: 30px;"><strong>kk_KZ.UTF-8 UTF-8</strong></pre>
+<p style="text-align: justify;">Завершаем сеанс, выбираем пользователя, внизу есть меню смены языка. Заходим (пароль пользователя user - live), включаем сглаживание шрифтов, и снимаем скриншот:</p>
+<p><a href="http://baurzhan.info/wp-content/uploads/2010/07/debian-live-kk.png"><img class="alignnone size-medium wp-image-553" title="debian-live-kk" src="http://baurzhan.info/wp-content/uploads/2010/07/debian-live-kk-300x232.png" alt="" width="300" height="232" /></a></p>
+<p>Ну вот, всего делов-то.</p>

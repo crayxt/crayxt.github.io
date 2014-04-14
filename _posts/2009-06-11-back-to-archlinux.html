@@ -1,0 +1,33 @@
+---
+layout: post
+title: back to Archlinux
+categories:
+- news
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: crayxt.blogspot.com
+  blogger_author: crayhttp://www.blogger.com/profile/10619159969647264476noreply@blogger.com
+  blogger_permalink: /2009/06/back-to-archlinux.html
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Вернулся назад в АрчЛинукс.<br />Pacman на казахском с моим переводом утешает.</p>
+<p>В планах подкорректировать перевод немного, местами. Нашел в git-e свой коммит. Ждем следующего релиза, чтобы поглядеть, как оно "из коробки".</p>
+<p>Также в Арч нужно отправить aspell казахский, уникодную раскладку и шрифт. Вчера не смог заставить отображать казахские буквы в "голой" консоли. Использовал шрифт terminus.</p>
+<p>Как разберусь - будет инструкция.</p>
+<p><span style="font-weight: bold;">UPD </span>Как оказалось, все просто до безобразия. Нужно было использовать шрифт Терминус</p>
+<p><span style="font-family: courier new;">#pacman -S terminus-font</span></p>
+<p>Затем загрузить консольный шрифт</p>
+<p><span style="font-family: courier new;">#setfont ter-p16n</span></p>
+<p>При желании можно взять и казахскую раскладку <a href="http://linuxforum.kz/index.php?showtopic=1949">отсюда</a></p>
+<p>Ложить в <span style="font-family: courier new;">/usr/share/kbd/keymaps/i386/qwerty/</span></p>
+<p>Загружаем раскладку</p>
+<p>#<span style="font-family: courier new;">loadkeys kaz_gost-unicode</p>
+<p>Ctrl+Shift -<span style="font-family: georgia;"> переключает раскладку</span><br /></span></p>

@@ -1,0 +1,45 @@
+---
+layout: post
+title: Flush, проблемы с libtorrent-rasterbar 0.15.0-1
+categories:
+- news
+tags:
+- flush
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>С последним обновлением libtorrent-rasterbar 0.15.0-1, приехала проблема - Flush 0.9.2 не запускался - опять проблема расшаренных библиотек:) Ладно, с новой версией не компилится, собираем flush-bundle. Берем с AUR-а PKGBUILD для <a href="http://aur.archlinux.org/packages.php?ID=25114" target="_blank">flush</a>, и правим</p>
+<blockquote><p><span style="color: #000000;">pkgname=flush-bundle<br />
+_pkgname=flush<br />
+pkgver=0.9.2<br />
+pkgrel=1<br />
+pkgdesc="GTK+-based BitTorrent client"<br />
+arch=('i686' 'x86_64')<br />
+url="http://sourceforge.net/projects/flush/"<br />
+license=('GPL')<br />
+depends=('libconfig' 'libglademm' 'dbus-core')<br />
+install=${_pkgname}.install<br />
+source=('http://sourceforge.net/projects/flush/files/flush/0.9.2/flush-0.9.2-bundle.tar.bz2')<br />
+md5sums=('a53c015f15e3f963c19a2eb95335688b')</span></p>
+<p>build() {<br />
+cd "${srcdir}/${_pkgname}-${pkgver}"<br />
+export LDFLAGS="${LDFLAGS//-Wl,--as-needed}"<br />
+./configure --prefix=/usr</p>
+<p>#sed -i 's|#include &lt;boost/exception.hpp&gt;|#include &lt;boost/exception/all.hpp&gt;|g' src/common.cpp</p>
+<p>make || return 1<br />
+make DESTDIR="${pkgdir}/" install<br />
+}</p></blockquote>
+<p>Вот так-то. Ждем новой версии или других патчей. Кстати, в файле /usr/share/applications/flush.desktop меняем строку</p>
+<p><strong>Exec=flush %F</strong></p>
+<p>на</p>
+<p><strong>Exec=dbus-launch flush</strong></p>
+<p>Кажется, так не будет перехватывать торренты, если открывать их из браузера. А без этого просто не будет запускаться, выдавая ошибку вида, не могу создать сессию.</p>

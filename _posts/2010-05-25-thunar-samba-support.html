@@ -1,0 +1,24 @@
+---
+layout: post
+title: Thunar samba support, недочеты
+categories:
+- news
+tags:
+- thunar
+- xfce
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Во-первых, Thunar из git версии нормально отображает и монтирует шары. С паролем пока не пробовал, т.к. нет под рукой такой шары. Замечено вот что - те шары, что gvfs примонтировала, нигде в самом Thunar-е не отображаются, и отмонтировать их можно только в командной строке, сначала</p>
+<pre style="padding-left: 30px;"><strong>gvfs-mount -l</strong></pre>
+<pre style="padding-left: 30px;"><strong>gvfs-mount -u smb://server/share</strong></pre>
+<p>Надеюсь, что поправят.</p>

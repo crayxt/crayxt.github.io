@@ -1,0 +1,29 @@
+---
+layout: post
+title: Windows Server 2008 R2 SP1 install 0x800f0818 error
+categories:
+- news
+tags:
+- windows
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2595236005'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Disclaimer: Несмотря на то что этот  пост не в тему блога, пусть торчит здесь.</p>
+<p style="text-align: justify;">Last week I got an 0x800f0818 error while trying to install Service Pack 1 to Windows Server 2008 R2 SE 64-bit. After a bit of research, the solution was found, but it wasn't obvious, and I spent couple of hours trying to fix it.</p>
+<p style="text-align: justify;">It is basically the same error as described <a href="http://workinghardinit.wordpress.com/2010/07/17/windows-2008-r2-sp1-beta-install-gone-wrong-service-pack-installation-failed-with-error-code-0x800f0818/" target="_blank">here</a>, but this time error was slightly different.</p>
+<p style="text-align: justify;">This time another files gave the error, they were, cut from the <strong>C:\Windows\Logs\CBS\CBS </strong> log file.</p>
+<blockquote><p><code>CBS Mark store corruption flag because there is a mismatch between package identity and its content on package: Package_for_KB2476490_RTM~31bf3856ad364e35~amd64~~6.1.1.0. [HRESULT = 0x00000000 - S_OK]<br />
+2011-09-11 16:12:50, Info CBS Identity mismatch: Specified Identity: Package_for_KB2476490_RTM~31bf3856ad364e35~amd64~~6.1.1.0, actual package Identity: Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~6.1.7600.16385 [HRESULT = 0x800f0818 - CBS_E_IDENTITY_MISMATCH]<br />
+2011-09-11 16:12:50, Info CBS Failed to resolve package [HRESULT = 0x800f0818 - CBS_E_IDENTITY_MISMATCH]blockquote&gt;</code></p></blockquote>
+<p style="text-align: justify;">It turns out, that two files were obsolete. After replacing them from another server the problem was solved.</p>
+<p style="text-align: justify;">So, what the point of posting it here? I was wondering, why Service Pack 1 installation program didn't give me the explanation of error took place? But, its a Microsoft, no more wondering.</p>

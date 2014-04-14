@@ -1,0 +1,38 @@
+---
+layout: post
+title: Archlinux - libjpeg error
+categories:
+- linux
+tags:
+- Archlinux
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Вчерашнее обновление пакета libjpeg</p>
+<blockquote><p><strong>pacman -Qs libjpeg<br />
+local/libjpeg 7-1<br />
+Library of JPEG support functions</strong></p></blockquote>
+<p>поломало много чего в системе. Пока решилось только так</p>
+<blockquote><p><strong>cd /usr/lib/</strong></p>
+<p><strong>ln -s libjpeg.so.7 libjpeg.so.62</strong></p></blockquote>
+<p>Что теперь имеем? В браузере (Mozilla Firefox) не отображаются JPEG-изображения. На ветке <a href="http://bbs.archlinux.org/viewtopic.php?pid=584973" target="_blank">форума</a>, кстати, уже закрытой, ничего не прояснилось. Точнее, прояснилось, да еще как. Никто не писал багрепортов, потому и перенесли из [testing] в [extra]. Чтож теперь делать, пересобирать все остальное? Кстати, один из разработчиков Archlinux-a, если не ошибаюсь, написал весьма эмоциональный пост - <a href="http://allanmcrae.com/2009/06/expectations-of-services-provided-for-free/" target="_blank">Ожидания от бесплатных вещей</a>.</p>
+<p><strong>UPD.:</strong> Зеркало яндекса еще не обновилось - скачал старую версию пакета оттуда. Кому надо, <a href="http://baurzhan.info/blog/wp-content/uploads/2009/07/libjpeg-6b-6-i686.pkg.tar.gz">вот</a>, у меня есть.</p>
+<p>md5sum: 3cfb78bd9ac89bbf28130ec825187933  libjpeg-6b-6-i686.pkg.tar.gz</p>
+<p>Да, и не забудьте в /etc/pacman.conf  вставить следующее IgnorePkg   = libjpeg</p>
+<p><strong>UPD2:</strong> Ломаются все остальные обновления. Так что даже и хз, без джипега сидеть?</p>
+<p><strong>UPD3: </strong>Как и ожидалось, удаление firefox-pgo, и установка firefox с репозитариев решило проблему не отображающихся jpeg-картинок. Осталось узнать, стартует ли xfdesktop с новой версией libjpeg-а</p>
+<blockquote>
+<blockquote>
+<blockquote><p><strong><br />
+</strong></p></blockquote>
+</blockquote>
+</blockquote>

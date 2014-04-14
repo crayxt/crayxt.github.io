@@ -1,0 +1,24 @@
+---
+layout: post
+title: xfce4-xkb-plugin починили
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">В свое время я удалил из  Kazsid-а родной для Xfce апплет переключения раскладок xfce4-xkb-plugin из-за его "дырявости", то есть из него "утекала" память, и временами этот апплет отъедал добрую часть от системной.</p>
+<p style="text-align: justify;">Однако (хорошее начало предложения, да), ещё в мае месяце разработчик  <a href="http://jeromeg.blog.free.fr/" target="_blank">Jérôme Guelfucci </a> устранил утечки памяти, и новая версия уже есть в Debian sid. Звучит неплохо, и я вчера <a href="https://github.com/crayxt/kazsid/commit/22267cb79f89daf7237dc0d9105a102afd245f2d" target="_blank">перевел</a> Kazsid на использование этого плагина. Технология внесений изменений такая - запускаю Kazsid как LiveCD, правлю что нужно, то есть добавляю апплеты и проч., затем прогоняю diff между текущей конфигурацией и той что в дереве разработки, и изменения вношу в сборочный образец.</p>
+<p style="text-align: justify;">xxkb -&gt; |.</p>
+<p style="text-align: justify;">Ну и конечно без засады не обошлось, в релиз забыли включить казахский язык, быстро написал разработчику, теперь надеюсь, что включат.</p>
+<p style="text-align: justify;">P.S.: Заметил, что локализация abiword-a до сих находится в Kazsid-e, хотя самого этого редактора уже нет. Надо бы кикнуть.</p>

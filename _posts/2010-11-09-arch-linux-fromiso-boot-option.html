@@ -1,0 +1,34 @@
+---
+layout: post
+title: Arch Linux, fromiso boot option
+categories:
+- news
+tags:
+- fromiso
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: ''
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Так как скрипты <a href="https://wiki.archlinux.org/index.php/Archiso" target="_blank">Archiso</a> не поддерживают опцию загрузки fromiso, я немного подправил их, и теперь эта возможность работает. Конечно, имеется только базовая функциональность, но для меня достаточно. Вы, конечно, можете спросить, "Что за опция такая"?</p>
+<p style="text-align: justify;">Ситуация такая, скажем, вам неохота прожигать СД диски для того чтобы загрузить вашу сборку Linux,  и тем более, СД диски давно устарели. Один из выходов - некоторые дистры Линукса предлагают образ специально для записи на USB диски, то бишь флешки. Но флешка у меня всего одна, и не пустая, а такой образ затерет все.</p>
+<p style="text-align: justify;"><strong>Ъ-путь:</strong> Ставим на флешку загрузчик GRUB2. Он умеет монтировать ISO-образы, то есть позволит "достать" образ ядра и initrd из ISO образа и передать управление им. Однако, после такой передачи управления, подмонтированный GRUB2 образ теряется. И ядро не знает, откуда грузить систему. Значит, неоходимо показать ему, что нужно примонтировать носитель USB, примонтировать ISO-образ, лежащий на носителе еще куда-нибудь в систему, а дальше грузиться как обычно.</p>
+<p style="text-align: justify;">Вот он, виновник поста: <a href="http://mail.kazgrid.kz/repo/archiso-fromiso.patch" target="_blank">http://mail.kazgrid.kz/repo/archiso-fromiso.patch</a></p>
+<p style="text-align: justify;">Накладываете его на пакет<a href="http://aur.archlinux.org/packages.php?ID=25996" target="_blank"> archiso-git</a> с AUR-а.</p>
+<p style="text-align: justify;">Можете убедиться, он прост.</p>
+<p style="text-align: justify;">Вот кусок из моего grub.cfg</p>
+<blockquote>
+<pre style="text-align: justify;"><strong>menuentry "Archik fromiso" {
+loopback loop /archik-1.07-i686.iso
+linux (loop)/boot/vmlinuz26  fromiso=/dev/sda1/archik-1.07-i686.iso
+initrd (loop)/boot/myarch.img
+}</strong></pre>
+</blockquote>

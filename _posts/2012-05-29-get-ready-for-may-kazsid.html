@@ -1,0 +1,34 @@
+---
+layout: post
+title: Готовимся к майскому Казсиду
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Вот и пришла жаркая погода в столицу, а значит, заканчивается весна и начинается жаркое лето. +30 теперь никого не удивляет, разве что немного раздражает. Летом наверное и процессоры сильнее греются. Но давайте о хорошем - итак, новый Казсид на подходе! А что же в нем такого нового?</p>
+<p style="text-align: justify;">Ядро Linux 3.2.18, Iceweasel (Firefox) 12, Xfce 4.8, Libreoffice 3.5.3, Shotwell 0.12, Deadbeef 0.5.4 ну и так далее.</p>
+<p style="text-align: justify;">Ждите релиза после того как будет протестирована установка на доступных мне машинах.</p>
+<p style="text-align: justify;">Однако, на будущее есть план - отключить выбор клавиатуры в установщике. Потому там выбирается системная раскладка клавиатуры, а для системы подходит только английская раскладка. Потому и отключим. Знать бы только как.</p>
+<p style="text-align: justify;">Ожидается, что следующий Казсид будет после заморозки пакетной базы Debian Wheezy, которая должна произойти в июне. Когда же выпустят этот самый релиз Debian 7 (Wheezy), следом выйдет и стабильный релиз Kazsid-а. Набор пакетов будет как и прежде, менять ничего не собираюсь. Специфичной документации не будет, так как Kazsid - не отдельный проект.</p>
+<p style="text-align: justify;"><strong>UPD:</strong> Намутили с определением того, показывают ли локальные часы компьютера время по локальному часовому поясу или по UTC. Раньше достаточно было выставить параметр UTC=no в файле /etc/default/rcS. Теперь параметр с этого файла не читается, а читается третья строчка файла /etc/adjtime. Она может быть или UTC или LOCAL. Так что придется вам руками править данный файл после установки этой сборки Казсида.</p>
+<p style="text-align: justify;">Когда починят? Вот указан <a href="http://packages.debian.org/changelogs/pool/main/s/sysvinit/sysvinit_2.88dsf-25/changelog" target="_blank">список изменений для пакета initscripts</a>. Цитата:</p>
+<blockquote>
+<pre>- /etc/default/rcS is no longer managed by ucf, and is a regular
+  conffile.  Drop the UTC setting, which has been migrated to
+  /etc/adjtime by util-linux.  Break util-linux &lt;&lt; 2.20.1-5 in order
+  to ensure correct migration of the UTC setting before the file is
+  upgraded.</pre>
+</blockquote>
+<p style="text-align: justify;">Ждем починки к следующему релизу!</p>

@@ -1,0 +1,27 @@
+---
+layout: post
+title: Thunar/pcmanfm не реагирует на клик, баг
+categories:
+- news
+tags:
+- bug
+- thunar
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Вчерашнее обновление в Arch Linux, пакеты gtk2 до версии 2.20-1 и того, что от этого пакета напрямую зависело, принесло неприятный баг пользователям файловых менджеров Thunar/pcmanfm. При отображении содержимого каталогов в виде "Подробный список", работает только первый клик мыши, то есть, скажем, вы можете попасть в директорию, а дальше при клике мышью ничего не происходит.</p>
+<p><strong>Способы устранения: </strong></p>
+<p>1) Переключить в настройках активацию элементом по двойному щелчку на одинарную.</p>
+<p>2) Переключить отображение содержимого директорий на "Значки" или "Простой список".</p>
+<p>3) Downgrade пакетов (Не рекомендуется).</p>
+<p>Багрепорт <a href="http://bugs.archlinux.org/task/18904" target="_blank">FS#18904</a> в багтрекере Arch Linux. <a href="http://bbs.archlinux.org/viewtopic.php?id=94272" target="_blank">Тема</a> на форуме.</p>
+<p>Также есть эта проблема на<a href="https://bugs.launchpad.net/ubuntu/+source/thunar/+bug/520118" target="_blank"> launchpad</a>, <a href="http://bugzilla.xfce.org/show_bug.cgi?id=6230" target="_blank">bugtracker XFCE</a>, <a href="https://bugzilla.gnome.org/show_bug.cgi?id=612802" target="_blank">bugzilla Gnome</a>.</p>

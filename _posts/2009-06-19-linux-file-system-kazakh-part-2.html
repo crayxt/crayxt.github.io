@@ -1,0 +1,52 @@
+---
+layout: post
+title: Linux-тың файлдық жүйесі (Linux file system). 2-ші Бөлім
+categories:
+- kazakh
+- linux
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: crayxt.blogspot.com
+  blogger_author: crayhttp://www.blogger.com/profile/10619159969647264476noreply@blogger.com
+  blogger_permalink: /2009/06/linux-linux-file-system-2.html
+  _edit_last: '2'
+  _wp_old_slug: linux-%d1%82%d1%8b%d2%a3-%d1%84%d0%b0%d0%b9%d0%bb%d0%b4%d1%8b%d2%9b-%d0%b6%d2%af%d0%b9%d0%b5%d1%81%d1%96-linux-file-system-2-%d1%88%d1%96-%d0%b1%d3%a9%d0%bb%d1%96%d0%bc
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_oG5azV6eHnA/SjpUvQv_z8I/AAAAAAAAADI/cnacThQXD9s/s1600-h/lil+tux.png"><img style="margin: 0pt 10px 10px 0pt; float: left; cursor: pointer; width: 150px; height: 175px;" src="http://1.bp.blogspot.com/_oG5azV6eHnA/SjpUvQv_z8I/AAAAAAAAADI/cnacThQXD9s/s400/lil+tux.png" alt="" id="BLOGGER_PHOTO_ID_5348680678382751682" border="0" /></a>
+<p style="font-family: Arial;" align="JUSTIFY">Ішкі құрылысымен ажыратылатын көптеген файлдық жүйелердің түрлері бар, бірақ пайдаланушы өз үшін әрқайсысында бір-бірінің ішіне салынған бумалардан тұратын әдеттегі құрылысты табады. Файлдық жүйелер қатынасты құру уақыты, ақпаратты сақтау сенімділігі, ақаулықтарға тұрақтылығы, және тағы да басқа қосымша қасиеттері бойынша ажыратылады. Қазіргі операциялық жүйелер файлдық жүйелердің көп түрін қолдайды.  (Қатты дисктер,  CD мен DVD дисктерде қолданылатындардан басқа).</p>
+<p style="font-family: Arial;" align="JUSTIFY">Файлдық жүйелердің маңызды қасиеті – журналдауды қолдау. Журналдалатын файлдық жүйе дискіге жазудың барлық әрекеттерін үздіксіз бақылап отырады, сондықтан электрқорегі кенет өшірілгеннен кейін, компьютер қайта қосылған кезде файлдық жүйе әрқашан да жұмысқа дайын күйінде болады.</p>
+<p style="font-family: Arial;" align="JUSTIFY"> Linux-тың жұмысы үшін керек баптаулардың барлығын (файлдардың барлық керек түрлері мен атрибуттарды, соның ішінде рұқсат құқықтарын сақтауды) қолдайтын файлдық жүйелердің бірнеше түрі бар.</p>
+<p><span class="fullpost">
+<dl>
+<dt><font style="font-family:Arial;">Ext2/3</font></dt>
+<dd>
+<p align="JUSTIFY" style="font-family:Arial;">Файлдық жүйенің осы түрі  Linux үшін арнайы жасалып, Linux-жүйелердің  көбінде қолданылады. Ext3 пен Ext2  айырмашылығы, біріншісі кейін шығып,  құрамында <strong><font style="font-family:Arial;">журналдау</font></strong><font style="font-family:Arial;">  қолдауы бар. Қалған қасиеттері бойынша  осы екі файлдық жүйе бірдей, және  бір-бірне оңай айналдырылады. Сенімділігі  жоғары болған соң әдетте журналдауы  бар нұсқасы (Ext3) таңдалады. Диск әрекеттер  белсенділігі жоғары болған кезде Ext3  файлдық жүйенің өнімділігі төмендейді  және жүйеге түсетін орташа жүктелу  артады (Load Average). </font>  </p>
+</dd>
+<dt>  <font style="font-family:Arial;">ReiserFS</font></dt>
+<dd>
+<p align="JUSTIFY" style="font-family:Arial;">Бұл файлдық жүйе дерекқорға  ұқсас: оның ішінде өзінің индексация  мен жылдам іздеу жүйесі бар, ал оның  файл мен бумалар ретінде көрінуі –  жүйенің тек бір көрінісі ғана. Әдетте  ReiserFS ұсақ файлдардың көп санын сақтауға  үшін жақсы келеді деп саналады.  Журналдауды қолдайды.</p>
+</dd>
+<dt>  <font style="font-family:Arial;">XFS</font></dt>
+<dd>
+<p align="JUSTIFY" style="font-family:Arial;">Бұл файлдық жүйе үздіксіз  жазылатын не құрамасы өзгертілетін  үлкен және өте үлкен файлдарды сақтауға  арналған. Ext3 сияқты өнімділігі нашар  емес, бірақ оны қолданған кезде  электрқорегі кенет өшірілсе, файлдардың  құрамасын жоғалту қаупі бар (қауіпсіздік  салдарынан осындай кезде файлдың  құрамасын нөлдеу қолданылады). Үздіксіз  қорек көзіне (UPS) қосылған компьютерлерде  қолдануға ұсынылады.</p>
+</dd>
+<dt>  <font style="font-family:Arial;">SWAPFS</font></dt>
+<dd>
+<p align="JUSTIFY" style="font-family:Arial;">Файлдық жүйенің осы түрі  ерекше болып келеді, және ол қатты  дискте <strong>swap аймағын</strong><font style="font-family:Arial;">жасау үшін  қолданылады</font><font style="font-family:Arial;">. Ол  аймақ көбінесе жеке бөлімге шығарылады,  және Linux-та виртуалды жады ретінде  қолданылады. Егер физикалық жады аз  болса, мәліметтердің бір бөлігі осы  аймаққа көшіріледі.</font></p>
+</dd>
+<dt>  <font style="font-family:Arial;">JFS</font></dt>
+<dd>
+<p align="JUSTIFY" style="font-family:Arial;">IBM компаниясы осы файлдық  жүйесін жүктелуі үлкен серверлер үшін  жасаған: жасау кезінде өнімділік пен  сенімділікке назар аударылған, және  қойылған мақсаттарға жетті. Журналдауы  бар.</p>
+</dd>
+</dl>
+<p align="JUSTIFY" style="font-family:Arial;"> Сонымен қатар, Linux-та, өзінің файлдық жүйелерден басқа, тағы да көптеген түрлеріне қолдау бар. Егер ол файлдық жүйелерге жазу тәсілі белгілі болса, онда жазу мен оқу әрекеттері қолжетерлік болады, басқа жағдайда – тек оқуға ғана болады. Файлдық жүйелерің ондай түрлері әдетте басқа операциялық жүйелердің меншігі болады.</p>
+<p></span></p>

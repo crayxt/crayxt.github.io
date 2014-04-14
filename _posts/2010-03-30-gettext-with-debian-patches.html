@@ -1,0 +1,23 @@
+---
+layout: post
+title: Gettext с debian патчами
+categories:
+- news
+tags:
+- gettext
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Есть такой отличный джаббер-клиент как <a href="http://gajim.org/" target="_blank">Gajim</a>. Из минусов, пожалуй, только то, что написан он на питоне, а точнее PyGTK. Немного подтормаживает при старте, и при подключении. В остальном - отличная альтернатива Psi. Я использовал поочередно оба эти клиента, но так как в том году немного перевел Gajim, сейчас использую его, и стараюсь доделать перевод настолько, насколько хватит терпения. Злит обильное количество подсказок к опциям, я их пока пропускаю в переводе:).</p>
+<p style="text-align: justify;">Так вот. Так как шаблон у меня был немного устаревший, решил обновить его. Читал вот <a href="http://trac.gajim.org/wiki/DevTranslate" target="_blank">здесь</a>, у разработчиков. Я не разбираюсь в том, как делают шаблоны переводов, но этот путь, когда вам сначала необходимо скачать исходники, затем запустить последовательно <strong>./autogen.sh</strong>, затем перейти в папку <strong>po</strong> и сделать там <strong>make update-po</strong>, и только тогда на выходе получится готовый шаблон gajim.pot. Немного муторно, не так ли? Но и это не было бы большой проблемой, если бы некоторые проблемы с последней командой. А конкретно - вот есть <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=493218" target="_blank">багрепорт</a> от одного из разработчиков Gajim-a, в багтрекере Debian-a. Проблемы на стороне <a href="http://www.gnu.org/software/gettext" target="_blank"><strong>gettext</strong></a>. А в Арче - gettext не патченный. Так что вот, добавил в Арчевский патчи от Debian-a.</p>
+<p style="text-align: justify;"><strong>yaourt -S gettext-debian</strong></p>
+<p style="text-align: justify;">Проблем пока не встречено :). <a href="http://aur.archlinux.org/packages.php?ID=36052" target="_blank">Ссылка</a> на AUR-e.</p>

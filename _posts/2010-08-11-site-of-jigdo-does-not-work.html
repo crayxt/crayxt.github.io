@@ -1,0 +1,25 @@
+---
+layout: post
+title: Сайт Jigdo не работает
+categories:
+- news
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: '%d1%81%d0%b0%d0%b9%d1%82-jigdo-%d0%bd%d0%b5-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d0%b5%d1%82'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">В связи с новостью о заморозке Debian Squeeze решил собрать образ тестируемого DVD. Собираю в Arch Linux, пошел искать jigdo в AUR-e. Jigdo - это <a href="http://www.debian.org/CD/jigdo-cd/" target="_blank">такая</a> мегаполезная утилитка для сборки образов дисков, и может, еще для чего-нибудь. Неудивительно, что PKGBUILD для сборки jigdo в AUR-e <a href="http://aur.archlinux.org/packages.php?ID=10332" target="_blank">есть</a>. Однако, при попытке сборки makepkg ругнулся на  MD5 сумму файла <strong>jigdo-0.7.3.tar.bz2</strong>, и отвалился. Открываем сайт - вуаля, а там куча рекламы. Вовремя не оплатили доменчик?</p>
+<p style="text-align: justify;">Откуда брать исходники, как временно решение, Вы можете прочесть на той же страничке в AUR-e. Используйте зеркала Debian, скажем, вот так</p>
+<pre style="text-align: justify;">
+</pre>
+<pre style="padding-left: 30px;"><strong>source=("</strong><strong>http://mirror.yandex.ru/debian/pool/main/j/jigdo/jigdo_0.7.3.orig.tar.gz")</strong></pre>
+<p>Ну, и не забудьте поменять MD5SUM файла!</p>

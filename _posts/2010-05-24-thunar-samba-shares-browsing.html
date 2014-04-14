@@ -1,0 +1,25 @@
+---
+layout: post
+title: Thunar-1.1, samba shares browsing
+categories:
+- news
+tags:
+- thunar
+- xfce
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Имеем: Xfce4-git, Thunar-git (1.1) <a href="http://baurzhan.info/blog/repo-for-arch-linux/" target="_blank">отсюда</a> , свежеустановленный Arch Linux. Проблема: Не отображались сетевые ресурсы Samba/Windows shares. Решение - оказывается, gvfs поделен в Arch Linux-e, то есть функциональность обзора сетей SMB вынесена в отдельный пакет gvfs-smb. После установки этого пакета</p>
+<pre style="text-align: justify; padding-left: 30px;"><strong>sudo pacman -S gvfs-smb</strong>
+</pre>
+<p style="text-align: justify;">и релогина (чтобы рестартовать gvfs), сетевые ресурсы отображаются корректно.</p>
+<p style="text-align: justify;">P.S.: Do you have Thunar-1.1, but SMB network browsing doesn't work? Just install gvfs-smb package (or similar).</p>

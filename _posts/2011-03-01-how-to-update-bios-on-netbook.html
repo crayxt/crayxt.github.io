@@ -1,0 +1,76 @@
+---
+layout: post
+title: Как обновить BIOS
+categories:
+- useful
+tags:
+- BIOS
+- FreeDOS
+- memdisk
+- netbook
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  dsq_thread_id: '2606655002'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Как обновить BIOS на компьютере с ОС Linux, где нет не только Floppy, но и оптического привода? А конкретнее - как обновить BIOS на нетбуке? Хотя все написанное дальше можно применить и на обычном компьютере, так как описанный путь позволяет обойтись без записи Floppy или CD диска.</p>
+<p style="text-align: justify;">Возьмем, для примера, нетбук Acer Aspire one 532h. Я зашел на сайт производителя и обнаружил, что есть обновления для BIOS, исправляющие какие-то ошибки. Кстати, вот первое правило - если все работает, то лучше это не трогать! А второе правило, справедливое для тех системных администраторов, чьи сервера смотрят в интернет или доступны из сети, то есть, потенциально, могут быть взломаны - устанавливайте обновления безопасности! Мой нетбук взломать через BIOS трудно, потому что нетбук все время лежит дома, и к сети не подключен. Но перейдем же от слов к делу.</p>
+<p style="text-align: justify;"><!--more--></p>
+<p style="text-align: justify;">Производители обычно выпускают обновления BIOS в виде файла обновления и программы прошивки, работающей в одной из двух операционок - Windows и DOS. В Windows-е достаточно запустить исполняемый файл, и BIOS будет обновлен. А вариант с DOS-ом интереснее. Так как установленного DOS на компьютерах не найти, его можно запустить с Floppy или же с CD диска. Ни того, ни другого на нетбуках нет. Поэтому, будем действовать так - запишем файл обновления BIOS и программу прошивки в образ Floppy диска с установленным FreeDOS, а затем запустим этот образ на нетбуке с помощью Grub2 и memdisk (из проекта syslinux).</p>
+<p style="text-align: justify;">1) Находим сайт производителя нетбука (мат. платы), в нашем случае это <a href="http://support.acer.com/us/en/" target="_blank">http://support.acer.com/us/en/</a> затем выбираем свою модель нетбука и скачиваем архивчик с обновлением BIOS-а. Это файл BIOS_Acer_1.25_A_A.zip. Распаковываем его и наблюдаем структуру</p>
+<blockquote><p>$ tree BIOS_Acer_1.25_Windows<br />
+BIOS_Acer_1.25_Windows<br />
+├── DOS<br />
+│   ├── FLASH.BAT<br />
+│   ├── FLASHIT.EXE<br />
+│   └── NAV50.fd<br />
+├── readme.txt<br />
+└── Windows<br />
+&nbsp;&nbsp;└── NAV50125.EXE</p>
+<p>2 directories, 5 files</p></blockquote>
+<p style="text-align: justify;">Как и было сказано выше, есть внутренние папки с файлами для DOS и для Windows. Нас интересует папка BIOS_Acer_1.25_Windows/DOS и файлы внутри нее FLASH.BAT  FLASHIT.EXE  NAV50.fd.</p>
+<p style="text-align: justify;">2) Приготовим образ Floppy. Для этого находим и скачиваем готовый образ Floppy дискеты на 1.72 Мб. Почему не обычный образ на 1,44 Мб? Да потому что иначе не влезет, файл обновления слишком большой! Я брал этот образ на сайте <strong>http://bootcd.narod.ru</strong>, вот ссылочка на страницу с образами <a href="http://bootcd.narod.ru/images.htm" target="_blank">http://bootcd.narod.ru/images.htm</a>. Имя файла <a href="http://bootcd.narod.ru/fd001720.zip">fd001720.zip</a>. Распаковываем его</p>
+<blockquote>
+<p style="text-align: justify;">unzip fd001720.zip</p>
+</blockquote>
+<p style="text-align: justify;">и получаем файл<strong> fd001720.ima</strong>.</p>
+<p style="text-align: justify;">Монтируем этот файл в систему</p>
+<blockquote>
+<p style="text-align: justify;">sudo mount -o loop fd001720.ima /mnt</p>
+</blockquote>
+<p style="text-align: justify;">и закидываем файлы из папки DOS в образ</p>
+<blockquote>
+<p style="text-align: justify;">sudo cp BIOS_Acer_1.25_Windows/DOS/* /mnt</p>
+</blockquote>
+<p style="text-align: justify;">отмонтируем образ и скопируем его на флешку</p>
+<p style="text-align: justify;">3) Устанавливаем <a href="http://baurzhan.info/2010/12/06/how-to-install-grub2-on-usb-device/" target="_blank">загрузчик Grub2 на USB флешку</a>. Понятно, что если у вас на компьютере уже установлен Linux с загрузчиком Grub2, то флешка не нужна, просто закидывайте файлы себе в директорию /boot, или прописывайте полный путь до файлов, что более сложнее. Затем ставим на компьютер syslinux, чтобы из него взять файл memdisk (пример для Ubuntu/Debian):</p>
+<blockquote>
+<p style="text-align: justify;">sudo apt-get install syslinux</p>
+</blockquote>
+<p style="text-align: justify;">Предположим, что ваша флешка примонтирована на /media/disk. Скопируйте файл <strong>memdisk</strong> на флешку, желательно в корень:</p>
+<blockquote>
+<p style="text-align: justify;">cp /usr/lib/syslinux/memdisk /media/disk</p>
+</blockquote>
+<p style="text-align: justify;">4) Правим файл загрузчика grub.cfg, расположенный на вашей флешке в директории boot/grub. Вы же установили Grub2 на флешку, да?</p>
+<p style="text-align: justify;">Вот кусок необходимый для загрузки memdisk.</p>
+<blockquote>
+<p style="text-align: justify;">menuentry "FreeDOS with update for BIOS" {</p>
+<p style="text-align: justify;">linux16 /memdisk raw</p>
+<p style="text-align: justify;">initrd16 /fd001720.ima</p>
+<p style="text-align: justify;">}</p>
+</blockquote>
+<p style="text-align: justify;">5) Перезагружаемся, втыкаем питание от сети (иначе программа прошивки не запустится), выбираем загрузку с USB Flash, выбираем в меню Grub2 пункт  FreeDOS with update for BIOS, и вуаля - FreeDOS запущен! Запускаем программу прошивки, вводя команду</p>
+<blockquote>
+<p style="text-align: justify;">flash</p>
+</blockquote>
+<p style="text-align: justify;">Пару минут - и BIOS обновлен. Во время обновления не вздумайте вырубить компьютер! Ждите до конца процесса!</p>
+<p style="text-align: justify;"><strong>Примечание</strong>: Возня с флешкой нужна только если у вас на компьютере нет загрузчика Grub2. Или если вы готовите флешку не на том компе, что будете прошивать (как я). В любом случае, полезно иметь флешку с установленным Grub2, как минимум, чтобы суметь запустить Kazsid на вашем компе.</p>
+<p style="text-align: justify;"><strong>Дисклеймер:</strong> Из того, что автор блога, описывая свои шаги, добился результата, совсем не следует, что он будет отвечать за ваши действия, даже если вы повторите их шаг в шаг. Используйте данную инструкцию на свой страх и риск.</p>

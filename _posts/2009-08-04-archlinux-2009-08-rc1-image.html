@@ -1,0 +1,46 @@
+---
+layout: post
+title: 'Archlinux: 2009.08-RC1 готов для тестирования'
+categories:
+- news
+tags:
+- Archlinux
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Оригинал <a href="http://bbs.archlinux.org/viewtopic.php?id=77241" target="_blank">здесь.</a></p>
+<p>Релиз запланирован самое позднее на 9-е августа, по возможности будут ждать релиза pacman-3.3, который в данное время находится в [testing] репозитории.</p>
+<p>Наиболее важные изменения, по сравнению с предыдущим релизом 2009.02:<br />
+- использование нового установщика <a href="http://bbs.archlinux.org/viewtopic.php?id=58110" target="_blank">AIF</a><br />
+- улучшенный редактор разделов жесткого диска, с поддержкой dm_crypt и установкой системы на lvm<br />
+- поддержка автоматической установки (взамен quickinst)<br />
+- aufs вместо unionfs<br />
+- улучшенное определение загрузочных устройств (спец. для использующих usb образы)<br />
+- установка даты/времени улучшена<br />
+- переиначенные стандартные настройки grub<br />
+- и т.д....</p>
+<p>Чтобы помочь с тестированием, опробуйте следующее:</p>
+<ul>
+<li>интерактивная и автоматическая установка</li>
+<li>установка с сетевого источника и с CD</li>
+<li>сравните USB и CDROM образы, isolinux и grub.</li>
+</ul>
+<p>Разработчики просят особое внимание уделить следующим моментам:</p>
+<ul>
+<li>установка времени, при использовании UTC и localtime</li>
+<li>корректно ли archiso определяет загрузочное устройство (отрабатывается ли boot hook)</li>
+<li>установка загрузчика grub</li>
+<li>корректно ли образы USB определяют USB-контроллеры</li>
+</ul>
+<p>Багтрекер: <a href="http://bugs.archlinux.org/proj6" target="_blank">http://bugs.archlinux.org/proj6</a></p>
+<p>Список рассылки: <a href="http://www.archlinux.org/mailman/listinfo/arch-releng" target="_blank">http://www.archlinux.org/mailman/listinfo/arch-releng</a></p>
+<p>Скачать установочные образы можно здесь: <a href="http://build.archlinux.org/isos/" target="_blank">http://build.archlinux.org/isos/</a></p>

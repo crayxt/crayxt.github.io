@@ -1,0 +1,43 @@
+---
+layout: post
+title: 7zip vs xz - сравнение архиваторов
+categories:
+- news
+tags:
+- 7-zip
+- xz-utils
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '3'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p><a href="http://www.7-zip.org/" target="_blank">7-zip</a>. <a href="http://tukaani.org/xz/" target="_blank">XZ-utils</a>.</p>
+<p>Дано:</p>
+<pre style="padding-left: 30px;"><strong>681574400 haiku-a1r2-r36601-ps2-debug.image</strong></pre>
+<p style="text-align: justify;">Машина с 4 CPU, RAM 2 Gb, Arch Linux x32, up-to-date. Файл объемом 680 Мб. Тип файла - образ жесткого диска с OS Haiku. Отметим, что стандартный gzip сжимает этот файл примерно до 198 Мб. Но раз есть свобода выбора архиватора - то почему бы не попробовать и сравнить пару штук? Сегодня я сравнивал, как видите из заголовка, два архиватора. Параметры были взяты из man-страниц, никоим образом не побдирал, только выставил степень сжатия в максимальную. Скажем так, более приближенно к реальным требованиям. Итак, приступим:</p>
+<pre>1) <strong>time 7za a -t7z -m0=lzma -mx=9 haiku-a1r2-r36601-ps2-debug.image.7z haiku-a1r2-r36601-ps2-debug.image </strong></pre>
+<p style="padding-left: 30px;">7-Zip (A) 9.04 beta  Copyright (c) 1999-2009 Igor Pavlov  2009-05-30</p>
+<p style="padding-left: 30px;">p7zip Version 9.04 (locale=en_US.utf8,Utf16=on,HugeFiles=on,4 CPUs)</p>
+<p style="padding-left: 30px;">Scanning</p>
+<p style="padding-left: 30px;">Creating archive haiku-a1r2-r36601-ps2-debug.image.7z</p>
+<p style="padding-left: 30px;">Compressing  haiku-a1r2-r36601-ps2-debug.image</p>
+<p style="padding-left: 30px;">Everything is Ok</p>
+<p style="padding-left: 30px;">real    5m14.943s</p>
+<p style="padding-left: 30px;">user    0m7.370s</p>
+<p style="padding-left: 30px;">sys     8m13.784s</p>
+<pre>2) <strong>time xz -9z haiku-a1r2-r36601-ps2-debug.image</strong></pre>
+<p style="padding-left: 30px;">real    8m45.511s<br />
+user    1m5.969s<br />
+sys     7m39.273s</p>
+<p><strong>Результаты</strong>!</p>
+<p>105489674 haiku-a1r2-r36601-ps2-debug.image.lzma<br />
+105512040 haiku-a1r2-r36601-ps2-debug.image.xz</p>
+<p style="text-align: justify;">Как видим, разница незначительна в объеме, однако во времени заметная, так как 7zip автоматически определяет количество процессорных ядер и жмет в соответственное количество потоков. Xz пока не умеет многопоточно, хотя в man-странице написано, что ПОКА не умеет. У 7zip более информативный вывод, показывает прогресс в процентах.</p>
+<p style="text-align: justify;">Так что пока мой выбор - за 7zip.</p>

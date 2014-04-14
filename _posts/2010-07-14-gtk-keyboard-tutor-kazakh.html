@@ -1,0 +1,32 @@
+---
+layout: post
+title: Клавиатурный тренажёр Klavaro теперь с казахским внутри
+categories:
+- news
+tags:
+- klavaro
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Что-то типа того. Тут накопал старый перевод программы <a href="klavaro.sourceforge.net" target="_blank">Klavaro</a>, и решил обновить, попутно там нужно было создать два файлика, со словами, и с параграфами. Параграфы я пока оставил на потом, а сейчас покажу как забил 300 слов.</p>
+<pre style="padding-left: 30px;"><strong>for i in {1..300} ; do sed -n "${RANDOM}p" \</strong></pre>
+<pre style="padding-left: 30px;"><strong>/usr/share/myspell/kk_KZ.dic | cut -d "/" -f1 &gt;&gt; kk.words ; done</strong></pre>
+<p>Так-то! Вытаскиваем произвольные слова со словаря. В следующий запуск получим новые слова. И так хоть до .... хм, пока не надоест, наверное.</p>
+<p>Теперь программа берет слова из этого файла в произвольном порядке. Жесть! Иногда приколы получаются.</p>
+<p>P.S.: Необходимо установить пакет ﻿hunspell-kk.</p>
+<p>А вот так выглядит этот самый тренажёр, главное меню, рыбы сегодня нет;)</p>
+<p><a href="http://baurzhan.info/wp-content/uploads/2010/07/klavaro-1.png"><img class="alignnone size-medium wp-image-560" title="klavaro-1" src="http://baurzhan.info/wp-content/uploads/2010/07/klavaro-1-262x300.png" alt="" width="262" height="300" /></a></p>
+<p>А вот окно набора, пищит и рисует красным, если неправильно набирать.</p>
+<p><a href="http://baurzhan.info/wp-content/uploads/2010/07/klavaro-2.png"><img class="alignnone size-medium wp-image-561" title="klavaro-2" src="http://baurzhan.info/wp-content/uploads/2010/07/klavaro-2-300x224.png" alt="" width="300" height="224" /></a></p>
+<p style="text-align: justify;">Умеет и статистику показывать, и по результатам вашего набора составлять урок. Правда, я никогда не пользовался такой программой, но может быть, вам пригодиться. Аленка-то поди, устарела. Кстати, есть еще Gtypist от GNU, консольный тренажер. Самое то по SSH на серверах тренироваться.</p>
+<p>Такие дела.</p>
+<p>А кстати, где бы найти немного текста, абзацов 10, чтобы положить в качестве параграфов? С Википедии взять что ли?</p>

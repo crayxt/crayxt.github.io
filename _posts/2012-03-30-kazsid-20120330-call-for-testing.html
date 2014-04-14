@@ -1,0 +1,27 @@
+---
+layout: post
+title: kazsid 20120330 - call for testing
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Желающие приглашаются поучаствовать в тестировании сборки <a href="http://files.baurzhan.info/kazsid-20120330-i386-hybrid.iso" target="_blank">kazsid-20120330</a>.</p>
+<p style="text-align: justify;">Как и положено марту месяцу, что-то пошло не так, и ковыряния в системе было больше, чем обычно. К счастью, с помощью прямых рук, гугла и камрада <strong>taem</strong>-a все решено. Решено только для сборки Казсида, а не на глобальном уровне, то есть у разработчиков.</p>
+<p style="text-align: justify;">Вначале была <a href="http://lists.debian.org/debian-live/2012/03/msg00174.html" target="_blank">проблема</a> в скриптах загрузки, это мы решили сборкой локальной версии пакета с откатом изменения, которое приводило к сбою. После этого возникла проблема с тем что менеджер входа в систему lightdm немного <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=665710" target="_blank">неправильно упакован</a>, что приводит к потере им конфигурационного файла. Решено подкладыванием готового конфигурационного файла. Вот такие дела были.</p>
+<p style="text-align: justify;">Добавлю еще, что Казсид - это демонстрационный СД образ, роль которого - быть запущенным на компьютере в целях ознакомления с ОС Debian GNU/Linux. Поэтому такие решения проблем, которые описаны в предыдущих абзаце, не помешали мне выпустить очередную сборку. Если бы Казсид был дистрибутивом, то я бы первым отложил выпуск из-за возникших проблем.</p>
+<p style="text-align: justify;">Что обновилось?</p>
+<p style="text-align: justify;">Ядро Linux 3.2.13, Iceweasel 10.0.3, LibreOffice 3.4.6, Deadbeef 0.5.2 и так далее. В остальном - это просто срез репозитория Debian sid.</p>
+<p style="text-align: justify;">P.S.: Я попробую установить на обе своих машины данную сборку, в близжайшие выходные, затем, в случае успеха - будет релиз. Особенно меня интересует, как поведет себя менеджер входа в систему lightdm после установки. Посмотрим!</p>
+<p style="text-align: justify;"><strong>UPD:</strong> Забыл выставить опцию <strong>greeter-hide-users</strong> в значение <strong>false</strong> в файле <strong>/etc/lightdm/lightdm.conf</strong>. Без этой опции список пользователей в менеджере входа в систему скрыт и имя пользователя необходимо набирать вручную. Ну не страшно, поправим в следующем релизе.</p>

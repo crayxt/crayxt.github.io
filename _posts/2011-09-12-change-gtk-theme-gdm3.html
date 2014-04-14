@@ -1,0 +1,26 @@
+---
+layout: post
+title: GDM3 theming
+categories:
+- news
+tags:
+- gdm3
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Разобрался еще с одной проблемой в Kazsid-е, для менеджера входа в систему (GDM3) тема не применялась, то есть он просто не реагировал на изменения в своем конфигурационном файле. Оказалось, нужно было поставить один пакет</p>
+<blockquote>
+<p style="text-align: justify;"><code>sudo apt-get install gnome-settings-daemon</code></p>
+</blockquote>
+<p style="text-align: justify;">который и хранит эти настройки. Почему он не ставится автоматически - потому что для apt при сборке системы задается опция <code>--no-install-recommends</code>, чтобы не ставило кучу лишнего.</p>
+<p style="text-align: justify;">Теперь все нормально. Значит будем пересобирать Казсид.</p>
+<p>&nbsp;</p>

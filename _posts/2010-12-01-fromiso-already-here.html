@@ -1,0 +1,43 @@
+---
+layout: post
+title: fromiso уже здесь!
+categories:
+- news
+tags:
+- fromiso
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  _wp_old_slug: fromiso-%d1%83%d0%b6%d0%b5-%d0%b7%d0%b4%d0%b5%d1%81%d1%8c
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;"><a href="http://baurzhan.info/2010/11/09/arch-linux-fromiso-boot-option/" target="_blank">Прошло</a> не больше месяца с того времени как я отписал разработчикам, что неплохо бы включить такую возможность в скрипты archiso, и вот оно - случилось! <a href="http://mailman.archlinux.org/pipermail/arch-releng/2010-December/001281.html" target="_blank">Письмо</a> в списке рассылок. Цитирую:</p>
+<blockquote>
+<pre>I get the idea but adapt them using a different scheme:
+
+* First and most important using mount hooks handler so main archiso
+hook is not touched at all.
+* Make to work with copytoram option.
+* Make to work with by-label
+* Use a img_dev= and img_loop parameters instead of strange
+"fromiso=/dev/sdNM/the_img.iso". This also allows to place in any directory.
+
+See here [#1] for the RFC patch</pre>
+</blockquote>
+<p style="text-align: justify;">Самое время собирать новый archiso-git и пробовать эту фичу.</p>
+<p style="text-align: justify;"><span style="text-decoration: line-through;">UPD: Таки намутили чего-то, не работает из коробки, надо "пинать"</span></p>
+<p style="text-align: justify;">UPD2: Работает все. Вот образец конфига GRUB2 для загрузки</p>
+<blockquote>
+<p style="text-align: justify;">menuentry "Arch fromiso" {<br />
+loopback loop /arch.iso<br />
+linux (loop)/boot/vmlinuz26  img_dev=/dev/sda1 img_loop=arch.iso archisolabel=ARCH_201012<br />
+initrd (loop)/boot/myarch.img<br />
+}</p>
+</blockquote>

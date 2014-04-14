@@ -1,0 +1,28 @@
+---
+layout: post
+title: kazsid-20121128
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Собрался очередной Казсид. Внутри - свежий срез ветки Debian sid. Также мы починили live-installer, это наш установщик. В живой системе опять сменился путь, куда монтируется образ диска. Хорошо, что <a href="https://github.com/taem/live-installer/commit/95ad23156e61b95b69fa571df4b626b9d51f039e" target="_blank">чинить</a> тут было мало.</p>
+<p style="text-align: justify;">Также внутри ядро Linux 3.2.32, Firefox 17, Deadbeef 0.5.6, Xfce 4.8. Да, старый Xfce и мне самому надоел, однако, придется ждать, пока мейнтейнеры соизволят обновить его в репозиториях. С ветки experimental брать пока не будем.</p>
+<p style="text-align: justify;">Напоминаю, что локализация оставлена только для русского и казахских языков, а английский язык в программах идет по умолчанию. А еще у нас в комплекте джентльменский набор софта - офисный пакет LibreOffice, графический редактор GIMP, аудиоредактор Audacity, видео плеер mplayer2 с оболочкой Gnome-mplayer, ну и много чего другого полезного (и не очень). Аудио-видео играется из коробки, как говорится.</p>
+<p style="text-align: justify;">Из-за политики раздачи прав внутри системы, когда вы пытаетесь подключиться к новой Wi-Fi сети, или смонтировать раздел жесткого диска, у вас будет запрошен пароль пользователя root (который суперпользователь). По умолчанию пароль root-а такой же как и пароль пользователя, указанного при установке, так что обязательно смените его:</p>
+<p style="text-align: justify;"><code>sudo passwd root</code></p>
+<p style="text-align: justify;">Также анимация загрузки посредством <strong>plymouth</strong> присутствует в живой системе, но выключена по умолчанию для установленной системы. Чтобы включить ее опять, добавьте параметр <strong>splash</strong> к списку загрузочных параметров ядра.</p>
+<p style="text-align: justify;">Так как система перешла на использование звуковой подсистемы <strong>pulseaudio</strong>, не всегда работает регулятор громкости, расположенный на панели Xfce. Пользуйтесь горячими клавишами (Fn+), или программой <strong>pavucontrol</strong>.</p>
+<p style="text-align: justify;">По умолчанию образ загружается на казахском языке.</p>
+<p style="text-align: justify;">Собранный <a href="http://files.baurzhan.info/kazsid-20121128-i386-hybrid.iso" target="_blank">образ</a> залит, как и обычно, на http://files.baurzhan.info.</p>

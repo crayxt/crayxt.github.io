@@ -1,0 +1,28 @@
+---
+layout: post
+title: MPlayer - повышение громкости и борьба с Compiz
+categories:
+- linux
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: crayxt.blogspot.com
+  blogger_author: crayhttp://www.blogger.com/profile/10619159969647264476noreply@blogger.com
+  blogger_permalink: /2009/05/mplayer.html
+  _edit_last: '2'
+  _wp_old_slug: mplayer-%d0%bf%d0%be%d0%b2%d1%8b%d1%88%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b3%d1%80%d0%be%d0%bc%d0%ba%d0%be%d1%81%d1%82%d0%b8-%d0%b8-%d0%b1%d0%be%d1%80%d1%8c%d0%b1%d0%b0-%d1%81-compiz
+  dsq_thread_id: '2608140281'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p>Решил продолжать вести блог, публикуя здесь те советы, что помогли мне самому</p>
+<p>Что имеем: LinuxMint 7 (Ubuntu 9.04)<br />Проблема: Слишком тихий звук в некоторых фильмах<br />Решение: Так как запускать mplayer с аргументами -softvol -softvol-max ЧИСЛО не очень-то удобно, внесем следующие строчки в указанный конфиг</p>
+<p><span style="font-weight:bold;">cat .mplayer/config</span><br />#put your config here<br />softvol=1<br />softvol-max=400<br />vo=xv</p>
+<p>Замечено, что GMplayer (Гномовская оболочка к Мплейеру) не принимает в таком виде. Запускать через Открыть с помощью - Другое приложение - Ввести собств. команду - mplayer</p>
+<p>Также совет для тех, у кого видеокарта <span style="font-weight:bold;">blacklisted</span>, и <span style="font-weight:bold;">compiz</span> не включается. Запустите <span style="font-weight:bold;">compiz-check</span> в терминале, и следуйте указаниям. Внимание! Делаете это на свой страх и риск</p>

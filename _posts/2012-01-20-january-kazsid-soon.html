@@ -1,0 +1,32 @@
+---
+layout: post
+title: Сборка уже скоро
+categories:
+- news
+tags:
+- kazsid
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: cray
+  email: baurthefirst@gmail.com
+  display_name: cray
+  first_name: ''
+  last_name: ''
+---
+<p style="text-align: justify;">Оказывается, Linux ядро 3.2.1 уже в sid-е, теперь ждём libreoffice 3.4.5 для архитектуры i386 и запускаем сборку!</p>
+<p style="text-align: justify;"><strong>Дополнительно</strong>: в этом выпуске останется все таже фича, когда для того чтобы смонтировать диск, подключиться к сети, то есть выполнить административное действие, необходимо ввести свой пароль. Окно запроса пароля при этом выскакивает немаленькое, на нетбуке занимает половину экрана по ширине. Отключать этот запрос, думаю, не стоит. Мало ли куда можно щелкнуть не глядя, а запрос пароля - дополнительная защита.</p>
+<p style="text-align: justify;">Вы можете оценить работу без запроса пароля на административные действия в режиме работы Live CD, для этого специально прописывается конфиг, вот <a href="http://live.debian.net/gitweb?p=live-config.git;a=blob;f=scripts/config/110-policykit;" target="_blank">скрипт</a>, который это делает. Смотреть функцию <code>Configure_policykit</code>.</p>
+<p style="text-align: justify;">А еще, наблюдается проблема со сменными носителями, то что их не удается отмонтировать, система выдает сообщение, что, мол, занят раздел. Проверьте, что у вас не открыт файл с этого раздела, скажем, с флешки начали фильм смотреть или документ открыли. Если нет, то скорее всего виновата служба генерации превьюшек медиафайлов <strong>tumbler</strong>, просто запустите следующую команду в терминале, которая завершит рабочий процесс генератора превьюшек</p>
+<blockquote>
+<p style="text-align: justify;"><code>$killall tumblerd</code></p>
+</blockquote>
+<p style="text-align: justify;">Если же часто работаете со сменными носителями, и видите сообщение о том что диск занят уж очень часто, и это вам мешает - просто удалите из системы пакет с этой службой</p>
+<blockquote>
+<p style="text-align: justify;"><code>$sudo apt-get remove tumbler</code></p>
+</blockquote>
+<p style="text-align: justify;">Voilà!</p>
+<p style="text-align: justify;">
