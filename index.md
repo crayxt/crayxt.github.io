@@ -5,7 +5,7 @@ tagline:
 ---
 {% include JB/setup %}
 
-Sometime baurzhan.info will move here.
+My blog, baurzhan.info, moved to Github pages.
 
 Below is the posts list.
 
