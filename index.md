@@ -1,9 +1,8 @@
 ---
 layout: page
-title: Hello World!
+title: My new place!
 tagline: 
 ---
-{% include JB/setup %}
 
 My blog, baurzhan.info, moved to Github pages.
 
