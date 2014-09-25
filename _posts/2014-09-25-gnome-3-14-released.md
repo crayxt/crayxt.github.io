@@ -1,5 +1,3 @@
-2014-09-25-gnome-3-14-released.md
-
 ---
 layout: post
 title: "GNOME 3.14"
