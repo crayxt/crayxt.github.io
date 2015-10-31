@@ -41,12 +41,12 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <a href="/rss.xml" target="_blank">RSS</a>
           <div class="nav-collapse">
             <ul class="nav">
               {% assign pages_list = site.pages %}
               {% assign group = 'navigation' %}
               {% include JB/pages_list %}
-              <a href="/rss.xml" target="_blank">RSS</a>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
