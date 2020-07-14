@@ -4,7 +4,7 @@ title: "Грядущий LibreOffice 7.0"
 description: ""
 categories:
 - news
-tags: []
+tags: ["libreoffice"]
 ---
 
 The Document Foundation планирует выпустить следующий крупный релиз LibreOffice 7.0 в начала августа, то есть примерно через месяц. 
