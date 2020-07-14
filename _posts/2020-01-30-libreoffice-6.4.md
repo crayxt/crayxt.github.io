@@ -4,7 +4,7 @@ title: "LibreOffice 6.4"
 description: ""
 categories:
 - news
-tags: []
+tags: ["libreoffice"]
 ---
 
 The Document Foundation выпустила релиз LibreOffice 6.4. Это свободная альтернатива популярному офисному пакету.
