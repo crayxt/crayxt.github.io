@@ -11,8 +11,7 @@ tags: ["gnome", "games"]
 
 Итак, Шахматы!
 
-![Скриншот шахмат на казахском](http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-chess.png)
-
+<img src="http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-chess.png" scale="50%" alt="Скриншот шахмат на казахском">
 
 Маджонг!
 
