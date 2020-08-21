@@ -11,16 +11,15 @@ tags: ["gnome", "games"]
 
 Итак, Шахматы!
 
-<img src="http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-chess.png" scale="50%" alt="Скриншот шахмат на казахском">
+<img src="http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-chess.png" width="50%" alt="Скриншот шахмат на казахском">
 
-Маджонг!
+Маджонг
 
-![Скриншот маджонга на казахском](http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-mahjong.png)
+<img src="http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-mahjong.png" width="50%" alt="Скриншот маджонга на казахском">
 
+Судоку
 
-Судоку!
-
-![Скриншот судоку на казахском](http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-sudoku.png)
+<img src="http://baurzhan.info/wp-content/uploads/2020/08/gnome-games-sudoku.png" width="50%" alt="Скриншот судоку на казахском">
 
 В судоку ещё есть возможность распечатывать задания на бумаге, чтобы решать в оффлайне.
 
