@@ -1,3 +1,4 @@
+---
 layout: post
 title: "Релиз LibreOffice Community 7.6"
 description: ""
